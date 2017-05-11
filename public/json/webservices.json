@@ -1,0 +1,81 @@
+{
+    "WebServicesList": [
+        {
+            "Name": "jdbc",
+            "List": [
+                {
+                    "Id": "J001",
+                    "Name": "Execute SQL Query",
+                    "InputParams": {
+                        "id": "",
+                        "retmode": "",
+                        "rettype": ""
+                    },
+                    "OutputParams": {
+                        "outputText": ""
+                    },
+                    "Description": "Execute" 
+                },
+                {
+                    "Id": "J002",
+                    "Name": "Execute SQL Update",
+                    "InputParams": {
+                        "db": "",
+                        "retmode": "",
+                        "rettype": ""
+                    },
+                    "OutputParams": {
+                        "outputText": ""
+                    },
+                    "Description": "Execute an SQL update given the params" 
+                }
+            ],
+            "Desc": "List of web services related to query processing"
+        },
+        {
+            "Name": "ncbi",
+            "List": [
+                {
+                    "Id": "S001",
+                    "Name": "BlastP",
+                    "InputParams": {
+                        "id": "",
+                        "retmode": "",
+                        "rettype": ""
+                    },
+                    "OutputParams": {
+                        "outputText": ""
+                    },
+                    "Description": "BlastP compares sequences by local alignment" 
+                },
+                {
+                    "Id": "S002",
+                    "Name": "FASTA",
+                    "InputParams": {
+                        "db": "",
+                        "retmode": "",
+                        "rettype": ""
+                    },
+                    "OutputParams": {
+                        "outputText": ""
+                    },
+                    "Description": "FASTA aligns DNA and protein sequences" 
+                },
+                {
+                    "Id": "S003",
+                    "Name": "GBSeq",
+                    "InputParams": {
+                        "id": "",
+                        "retmode": "",
+                        "rettype": ""
+                    },
+                    "OutputParams": {
+                        "outputText": ""
+                    },
+                    "Description": "GBSeq represents the elements in a GenBank style report of a sequence with some small additions to structure and support for protein (GenPept) versions of GenBank format as seen in Entrez." 
+                }
+            ],
+            "Desc": "List of web services offered by ncbi"
+        }
+    ]  
+}
