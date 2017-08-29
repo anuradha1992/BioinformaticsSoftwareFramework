@@ -1,0 +1,12 @@
+BLASTN 2.4.0+
+
+
+Reference: Zheng Zhang, Scott Schwartz, Lukas Wagner, and Webb
+Miller (2000), "A greedy algorithm for aligning DNA sequences", J
+Comput Biol 2000; 7(1-2):203-14.
+
+
+
+Database: test
+           22 sequences; 34,042 total letters
+

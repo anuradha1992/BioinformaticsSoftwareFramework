@@ -50,3 +50,31 @@ app.use("*",function(req,res){
 app.listen(3000,function(){
   console.log("Live at Port 3000");
 });
+
+/* ncbi blastp backend */
+
+var blast = require('blastjs');
+
+var type = 'nucl';
+var fileIn = './ncbi/test.fasta';
+var outPath = './ncbi';
+var name = 'test';
+
+blast.makeDB(type, fileIn, outPath, name, function(err){
+  if(err){
+    console.error(err);   
+  } else {
+    console.log('database created at', outPath);
+  }
+});
+
+blast.outputString(true); //optional
+ 
+var dbPath = './ncbi/test';
+var query = 'CTAATACCGAATAAGGTCAGTTAATTTGTTAATTGATGAAAGGAAGCCTT';
+ 
+blast.blastN(dbPath, query, function (err, output) {
+  if(!err){
+    console.log(output);
+  }
+});

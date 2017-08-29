@@ -3,6 +3,8 @@
 
 // creating js tree instances
 
+/* Rest of the code */
+
 $(function () {
     // 6 create an instance when the DOM is read
     $('#jstree').jstree();
@@ -16,11 +18,6 @@ $(function () {
       $('#jstree').jstree('select_node', 'child_node_1');
       $.jstree.reference('#jstree').select_node('child_node_1');
     });
-});
-
-jsPlumb.ready(function() {
-  jsPlumb.draggable("item_left");
-  jsPlumb.draggable("item_right");
 });
 
 var service;
@@ -49,7 +46,7 @@ for(var i = 0; i < response.WebServicesList.length; i++)
     //}      
 }
 
-var showText = function (target, message, index, interval) {   
+function showText(target, message, index, interval) {   
   if (index < message.length) {
     $(target).append(message[index++]);
     setTimeout(function () { showText(target, message, index, interval); }, interval);
@@ -89,87 +86,6 @@ document.getElementById("list").innerHTML += "" + appendStr;
 var width = window.innerWidth / 2;
 var height = window.innerHeight;
 
-var stage = new Konva.Stage({
-    container: 'container',
-    width: width,
-    height: height
-});
-var layer = new Konva.Layer();
-var rectX = stage.getWidth() / 2;
-var rectY = stage.getHeight() / 2;
-
-/*var box = new Konva.Rect({
-    x: rectX,
-    y: rectY,
-    width: 100,
-    height: 50,
-    fill: '#00D2FF',
-    stroke: 'black',
-    strokeWidth: 1,
-    draggable: true,
-    id: "B01"
-});
-
-// add cursor styling
-box.on('mouseover', function() {
-    document.body.style.cursor = 'pointer';
-    console.log("box id");
-});
-box.on('mouseout', function() {
-    document.body.style.cursor = 'default';
-});
-box.on('click', function() {
-    console.log(box.id());
-});
-layer.add(box);*/
-
-// Adding connected arrow and circles
-
-/*var circle = new Konva.Circle({
-    x: stage.getWidth() / 2,
-    y: stage.getHeight() / 2,
-    radius: 40,
-    fill: 'green',
-    stroke: 'black',
-    strokeWidth: 2,
-    draggable: true
-});
-
-var circleA = new Konva.Circle({
-    x: stage.getWidth() / 5,
-    y: stage.getHeight() / 5,
-    radius: 30,
-    fill: 'red',
-    stroke: 'black',
-    strokeWidth: 2,
-    draggable: true
-});
-
-var arrow = new Konva.Arrow({
-    points: [circle.getX(), circle.getY(), circleA.getX(), circleA.getY()],
-    pointerLength: 10,
-    pointerWidth: 10,
-    fill: 'black',
-    stroke: 'black',
-    strokeWidth: 4
-});
-
-function adjustPoint(e){
-    var p=[circle.getX(), circle.getY(), circleA.getX(), circleA.getY()];
-    arrow.setPoints(p);
-    layer.draw();
-}
-
-circle.on('dragmove', adjustPoint);
-circleA.on('dragmove', adjustPoint);
-
-layer.add(circleA);
-// add the shape to the layer
-layer.add(circle);
-layer.add(arrow);
-
-stage.add(layer);*/
-
 var index = 2;
 var start = false;
 var arrow_x = 0;
@@ -181,7 +97,66 @@ var box_1_id = "";
 
 var servicesList = [];
 
-function add(){
+var modalId = 1;
+
+var DAG;
+
+function createModal (type, name, comp_id)
+{
+    var strModal = '';
+    var strModal = '<div class="modal fade" id="M'+ modalId +'" role="dialog">' +
+    '<div class="modal-dialog modal-sm">' +
+      '<div class="modal-content">' +
+        '<div class="modal-body" style="background-color: #f7f7f9;">';
+
+    if(type == "db")
+    {
+        strModal += '<div class="form-group">' +
+            '<label for="' + name + '">Specify ' + name + ':</label>' +
+            '<input type="text" class="form-control" disabled value="./ncbi/test">' +
+            '</div>';
+    } else if (type == "seq")
+    {
+        /*strModal += '<form ng-submit="submit()" ng-controller="InputController">' +
+            'Specify ' + name + ':' +
+            '<input type="text" ng-model="seq" name="text" />' +
+            '<input type="submit" id="submit" value="Submit" />' +
+            '<pre>list={{seq}}</pre>' +
+        '</form>';*/
+        strModal += 'sdsadasdas<br><hello-world></hello-world>';
+
+        /*var childScope = scope.$new();
+        var x = document.createElement('hello-world');
+        var compiled = $compile(x)(childScope);
+        parentDiv.appendChild(compiled);*/
+
+
+    }
+
+    /*strModal += '<div align="right"><button type="button" class="btn" data-dismiss="modal">Cancel</button>&nbsp;' +
+          '<button type="button" class="btn" data-dismiss="modal" onclick=saveInput("'+ comp_id +'")>Ok</button></div>' +
+        '</div>' +
+        '</div>' +
+        '</div>' +
+    '</div>';*/
+
+    strModal += '</div></div></div></div>';
+
+  modalId++;
+  return strModal;
+
+}
+
+function createObj (serviceObj) {
+    
+}
+
+var comp_id = 1;
+
+var comp_id_list = [];
+var component_pool = [];
+
+function add (){
 
     console.log(service);
 
@@ -203,9 +178,39 @@ function add(){
         if(found)
             break;
     }
-    //document.getElementById("panel-container").innerHTML += '<div id="'+ service +'" class="drag-comp draggable"><p>' + service + '</p></div>';
 
-    document.getElementById("panel-container").innerHTML += '<div id="C'+ service +'" class="drag-comp"><p>' + serviceObj['Name'] + '</p></div>';
+    if(serviceObj !== null)
+    {
+        serviceObj["comp_id"] = "C"+ comp_id + service;
+        component_pool.push(serviceObj);
+        console.log(serviceObj);
+    }
+
+    //document.getElementById("panel-container").innerHTML += '<div id="'+ service +'" class="drag-comp draggable"><p>' + service + '</p></div>'; serviceObj['Name']
+
+    var innerappend = '<div id="C'+ comp_id + service +'" class="drag-comp"><table><tr>';
+    comp_id++;
+
+    for(var i=0; i < serviceObj['InputParams'].length; i++)
+    {
+        var modalHTML = createModal("" + serviceObj['InputParams'][i]['type'], "" + serviceObj['InputParams'][i]['name'], ("C"+ comp_id + service));
+        innerappend += '<td style="padding-bottom: 5px"><button class="inner-btn" data-toggle="modal" data-target="#M'+(modalId-1)+'">' + serviceObj['InputParams'][i]['name'] + '</button></td>';
+        document.getElementById("modalContainer").innerHTML += modalHTML;
+    }
+
+    /*for(var key in serviceObj['InputParams']) {
+        innerappend += '<td><button class="inner-btn">' + key + '</button></td>';
+    }*/
+
+    innerappend += '</tr><tr><td colspan="3">'+ serviceObj['Name'] +'</td></tr><tr>';
+
+    for(var key in serviceObj['OutputParams']) {
+        innerappend += '<td style="padding-top: 5px"><button class="inner-btn">' + key + '</button></td>';
+    }
+
+    innerappend += '</tr><table>' + '</div>';
+
+    document.getElementById("panel-container").innerHTML += innerappend;
 
     servicesList.push(serviceObj);
 
@@ -213,157 +218,22 @@ function add(){
     console.log(servicesList[servicesList.length-1]);
 
     jsPlumb.ready(function() {
-        jsPlumb.draggable("C"+ service);
-        if(servicesList.length > 1)
+        /*if(servicesList.length > 1)
         {
             jsPlumb.connect({
                 source:"C"+servicesList[servicesList.length-1]['Id'],
                 target:"C"+servicesList[servicesList.length-2]['Id'],
                 endpoint:"Rectangle"
             });
-            jsPlumb.draggable("C"+servicesList[servicesList.length-1]['Id']);
-            jsPlumb.draggable("C"+servicesList[servicesList.length-2]['Id']);
-        }
-    });
-
-    var group = new Konva.Group({
-        x: 0,
-        y: 0,
-        rotation: 0,
-        id: "G" + service
-    });
-
-    var complexText = new Konva.Text({
-      x: rectX,
-      y: rectY,
-      text: service,
-      fontSize: 18,
-      fontFamily: 'Calibri',
-      fill: '#555',
-      width: 300,
-      padding: 20,
-      align: 'left'
-    });
-
-    var box = new Konva.Rect({
-        x: rectX,
-        y: rectY,
-        width: 100,
-        height: 50,
-        fill: '#00D2FF',
-        stroke: 'black',
-        strokeWidth: 1,
-        draggable: true,
-        id: service
-    });
-   
-    group.add(box);
-    group.add(complexText);
-
-    object_arr_ids.push(service);
-
-    index = index + 1;
-
-    group.on('mouseover', function() {
-        document.body.style.cursor = 'pointer';
-        box.fill('#FF0000');
-        if(start == false)
+        }*/
+        comp_id_list.push("C"+ (comp_id - 1) + service);
+        for(var i = 0; i < comp_id_list.length; i++)
         {
-            start = true;
-            box_1_id = group.id();
-        } else {
-            start = false;
-            var arrow = new Konva.Arrow({
-              points: [arrow_x, arrow_y, (box.x() + (box.width() / 2)), (box.y() + (box.height() / 2))],
-              pointerLength: 10,
-              pointerWidth: 10,
-              fill: 'black',
-              stroke: 'black',
-              strokeWidth: 4
-            });
-            layer.add(arrow);
-
-            var box1 = stage.find("#"+box_1_id)[0];
-
-            function adjustPointBox(e){
-                var p=[box1.getX(), box1.getY(), box.getX(), box.getY()];
-                arrow.setPoints(p);
-                layer.draw();
-            }
-
-            box1.on('dragmove', adjustPointBox);
-            box.on('dragmove', adjustPointBox);
-
+            jsPlumb.draggable(comp_id_list[i]);
         }
     });
-    group.on('mouseout', function() {
-        document.body.style.cursor = 'default';
-        box.fill('#00D2FF');
-        console.log(box.id() + " = [" + box.x() + "," + box.y() + "]");
-        if (start == true)
-        {
-            arrow_x = box.x() + (box.width() / 2);
-            arrow_y = box.y() + (box.height() / 2);
-        } else {
-            arrow_x = 0;
-            arrow_y = 0;
-        }
-    });
-    /*box.off('mouseover');
-    box.off('mouseout');*/
 
-    //layer.add(group);
-    
-    //layer.add(box);
-    //layer.add(complexText);
-    layer.add(group);
-
-    stage.add(layer);
-    //document.getElementById("basic").onclick = false;
 }
-
-/*function connect(){
-    for(var n = 0; n < object_arr_ids.length; n++) {
-        console.log(""+object_arr_ids[n]);
-        var box = stage.find("#"+object_arr_ids[n])[0];
-        console.log(box);
-        box.on('mouseover', function() {
-            document.body.style.cursor = 'pointer';
-            box.fill('#FF0000');
-            if(start == false)
-            {
-                start = true;
-            } else {         
-                if(arrow_x >= -1 && arrow_y >= -1)
-                {
-                    var arrow = new Konva.Arrow({
-                      points: [arrow_x, arrow_y, (box.x() + (box.width() / 2)), (box.y() + (box.height() / 2))],
-                      pointerLength: 10,
-                      pointerWidth: 10,
-                      fill: 'black',
-                      stroke: 'black',
-                      strokeWidth: 4
-                    });
-                    layer.add(arrow);
-                    start = false;
-                }
-            }
-        });
-        box.on('mouseout', function() {
-            document.body.style.cursor = 'default';
-            box.fill('#00D2FF');
-            console.log(box.id() + " = [" + box.x() + "," + box.y() + "]");
-            if (start == true)
-            {
-                arrow_x = box.x() + (box.width() / 2);
-                arrow_y = box.y() + (box.height() / 2);
-            } else {
-                arrow_x = -1;
-                arrow_y = -1;
-            }
-        });
-    }
-}*/
 
 // target elements with the "draggable" class
 interact('.draggable')
@@ -407,3 +277,67 @@ interact('.draggable')
 
 // this is used later in the resizing and gesture demos
 window.dragMoveListener = dragMoveListener;
+
+///////////////////////////////////////////////////////////////////////////////////////
+
+var a = $("#a");
+var b = $("#b");
+
+//Setting up drop options
+var targetDropOptions = {
+    activeClass: 'dragActive'
+};
+
+//Setting up a Target endPoint
+var targetColor = "#316b31";
+var targetEndpoint = {
+    anchor: "TopCenter", 
+    endpoint: ["Dot", { radius: 8}],
+    paintStyle: { fillStyle: targetColor},
+    isSource: true,
+    scope: "green dot",
+    connectorStyle: { strokeStyle: targetColor, lineWidth: 8 },
+    connector: ["Flowchart"],
+    maxConnections: -1,
+    isTarget: true,
+    dropOptions: targetDropOptions
+};
+
+//Setting up a Source endPoint
+var sourceColor = "#ff9696";
+var sourceEndpoint = {
+    anchor: "BottomCenter",
+    endpoint: ["Dot", { radius: 8}],
+    paintStyle: { fillStyle: sourceColor },
+    isSource: true,
+    scope: "green dot",
+    connectorStyle: { strokeStyle: sourceColor, lineWidth: 8 },
+    connector: ["Bezier", { curviness: 63}],
+    maxConnections: -1, 
+    isTarget: true,
+    dropOptions: targetDropOptions
+};
+
+jsPlumb.bind("ready", function () {
+
+    //Set up endpoints on the divs
+    jsPlumb.addEndpoint($(".window"), targetEndpoint);
+    jsPlumb.addEndpoint($(".window"), sourceEndpoint);
+
+    jsPlumb.draggable($(".window"));
+});
+
+function AddDiv() {
+    var Div = $('<div>', { id: "X12" }, 
+                         { class: 'window ui-draggable' })
+              .css(
+                         { height: '100px', 
+                           width: '100px', 
+                           border: 'solid 1px' 
+                         }
+                  ).appendTo('body');
+    jsPlumb.addEndpoint($(Div), targetEndpoint);
+    jsPlumb.addEndpoint($(Div), sourceEndpoint);
+    jsPlumb.draggable($(Div));
+    $(Div).addClass('window');
+}
