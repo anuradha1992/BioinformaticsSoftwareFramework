@@ -23,7 +23,7 @@ $(function () {
 var service;
 
 var xmlHttp = new XMLHttpRequest();
-xmlHttp.open( "GET", "http://127.0.0.1:3000/listServices", false ); // false for synchronous request
+xmlHttp.open( "GET", "/listServices", false ); // false for synchronous request
 xmlHttp.send(null);
 var response = JSON.parse(xmlHttp.responseText);
 console.log(response);
