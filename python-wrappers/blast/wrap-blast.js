@@ -7,9 +7,9 @@ export default class WrapBlast {
     options;
 
     // TODO these are the parameters
-    constructor(arg1, arg2, arg3) {
+    constructor(arg1 = null, arg2 = null, arg3 = null) {
         this.options = {
-            mode: 'text',
+            mode: 'json',
             // pythonPath: 'python',
             pythonOptions: ['-u'],
             // scriptPath: './blast',
@@ -19,17 +19,20 @@ export default class WrapBlast {
 
     exec() {
         const shell = new PythonShell('./python-wrappers/blast/blast.py', this.options);
+        let result = null;
 
         shell.on('message', (message) => {
-            console.log('MESSAGE: ',message);
+            // console.log('MESSAGE: ',message);
+            result = message;
         });
 
         return new Promise((resolve, reject) => {
             shell.end((err) => {
                 if (err) reject();
                 console.log('finished');
-                resolve();
+                resolve(result);
             });
+            // resolve('DUMMY DATA')
         });
 
     }

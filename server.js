@@ -52,10 +52,29 @@ app.listen(3000, function () {
 });
 
 
-import WrapBlast from './python-wrappers/blast/wrap-blast';
+import Step from './workflow/step';
+import * as Task from './workflow/tasks';
 
-const wb = new WrapBlast('asd', 'asd', 'asda');
-wb.exec();
+
+const step1 = new Step(Task.Blast, true);
+const step2 = new Step(Task.Visualize);
+const step3 = new Step(Task.Visualize);
+
+
+async function main() {
+    step1.setNext(step2);
+    // step2.setNext(step3)
+
+    const result = await step1.start();
+
+    console.log('Final outcome', result);
+}
+
+main();
+
+
+// const wb = new WrapBlast('asd', 'asd', 'asda');
+// wb.exec();
 
 
 /* ncbi blastp backend */
