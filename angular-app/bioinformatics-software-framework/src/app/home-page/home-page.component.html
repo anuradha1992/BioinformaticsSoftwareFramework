@@ -1,0 +1,40 @@
+<div>
+  <nav id = "main_nav" class="navbar navbar-inverse bg-inverse" role="navigation" style="padding-left:130px; border-radius: 0">
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="/home">Home</a></li>
+      <li><a href="/about">About us</a></li>
+      <li><a href="/contact">Contact us</a></li>
+    </ul>
+  </nav>
+</div>
+
+<br>
+<div>
+  <div class="col-sm-3">
+
+    <div class="form-group">
+      <label for="userIdType">Type:</label>
+      <input id="userIdType" type="text" name="product" list="productName" class="selectpicker" class="form-control" />
+      <datalist id="productName">
+        <option value="Pen">Pen</option>
+        <option value="Pencil">Pencil</option>
+        <option value="Paper">Paper</option>
+      </datalist>
+    </div>
+
+    <hr>
+
+    <div id="jstree"></div>
+
+    <hr>
+
+    <div class="panel panel-default">
+      <div class="panel-body" id="description"><b>Description: </b>{{description}}<span id="text"></span>
+      </div>
+    </div>
+
+    <!--<button type="button" class="btn" id="add" onclick="add()" disabled="true">Add Component</button>-->
+    <!--<button type="button" class="btn" id="connect" onclick="connect()">Connect</button>-->
+
+  </div>
+</div>
