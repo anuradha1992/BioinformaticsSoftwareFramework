@@ -1,0 +1,23 @@
+<div class="container">
+  <div [ngClass]="{'clicked': step.clicked}" [id]="step.stepId" class="item">
+    <div class="h5" style="text-align: center">{{step.text}} <span (click)="onStepRemove($event)"
+                                                                   class="glyphicon glyphicon-remove cross"></span></div>
+    <hr>
+    <button class="btn btn-block" *ngFor="let input of step.inputs; let i = index"
+            (click)="onInputPress($event, 'dialog_'+step.stepId+'_'+i)">{{input.name}}
+    </button>
+    <hr>
+    <div (click)="onBoxClick($event)" style="text-align: center"><span class="glyphicon glyphicon-arrow-down"></span>
+    </div>
+    <div *ngFor="let input of step.inputs; let i = index" style="display: none" id="dialog_{{step.stepId}}_{{i}}"
+         title="Provide {{input.name}}">
+      <p>Enter the input {{input.name}}</p>
+      <textarea [(ngModel)]="input['tempValue']" class="form-control" rows="5" style="width: 100%"></textarea>
+      <br>
+      <div style="float: right">
+        <button (click)="onDialogCancel(input, 'dialog_'+step.stepId+'_'+i)" class="btn">Cancel</button>
+        <button (click)="onDialogOk(input, 'dialog_'+step.stepId+'_'+i)" class="btn">Ok</button>
+      </div>
+    </div>
+  </div>
+</div>

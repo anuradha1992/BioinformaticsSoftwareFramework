@@ -1,0 +1,5 @@
+<div (click)="onBoardClick()" class="drawing-board">
+  <app-step-box (remove)="onStepRemove($event)" (boxClick)="onBoxClick($event)" *ngFor="let step of steps" [step]="step"></app-step-box>
+  <!--<app-step-box [stepId]="'item_right'"></app-step-box>-->
+  <!--<app-step-box></app-step-box>-->
+</div>
