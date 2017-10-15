@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
+declare const jsPlumb: any;
 declare const $: any;
 
 @Component({
@@ -16,6 +17,12 @@ export class StepBoxComponent implements OnInit {
   }
 
   ngOnInit() {
+    // $(".item").resizable({
+    //   resize : function(event, ui) {
+    //     jsPlumb.repaint(ui.helper);
+    //   },
+    //   handles: "all"
+    // });
   }
 
   onBoxClick(event) {

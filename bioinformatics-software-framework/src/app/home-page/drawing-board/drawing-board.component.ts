@@ -16,12 +16,22 @@ declare const uuidv4: any;
 export class DrawingBoardComponent implements OnInit {
   private steps: Array<any> = [];
   private links: Array<any> = [];
+  private connectorProps: any = {
+    connector: ["Straight"],
+    anchor: ["Left", "Right"],
+    endpoint: "Dot"
+  };
 
   constructor() {
   }
 
   ngOnInit() {
+    // $(".drawing-surface").panzoom();
     jsPlumb.ready(() => {
+      jsPlumb.importDefaults({
+        Connector: ["Flowchart"]
+      });
+
       jsPlumb.bind("connectionDetached", (info) => {
         const conn = info.connection;
         _.remove(this.links, (link) => {
@@ -54,7 +64,12 @@ export class DrawingBoardComponent implements OnInit {
               const connection = jsPlumb.connect({
                 source: link.from.stepId,
                 target: link.to.stepId,
-              });
+                paintStyle: {strokeStyle: "black", lineWidth: 3},
+                endpointStyle: {fillStyle: "red", outlineColor: "black", radius: 5},
+                overlays:[
+                  ["Arrow" , { width:12, length:12, location:0.67 }]
+                ]
+              }, this.connectorProps);
               link['connection'] = connection;
             }
           });

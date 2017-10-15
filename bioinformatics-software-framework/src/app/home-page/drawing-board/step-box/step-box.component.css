@@ -7,6 +7,7 @@
   background-color: #f0ca58;
   left: 20vw;
   top: 10vh;
+  overflow: scroll;
 }
 
 .clicked {
