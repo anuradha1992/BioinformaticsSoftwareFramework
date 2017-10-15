@@ -1,0 +1,20 @@
+.item {
+  position: absolute;
+  min-width: 150px;
+  padding: 2px;
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: #f0ca58;
+  left: 20vw;
+  top: 10vh;
+  overflow: scroll;
+}
+
+.clicked {
+  background-color: #f05403 !important;
+}
+
+.cross {
+  float: right;
+  margin-right: 10px
+}

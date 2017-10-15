@@ -1,0 +1,50 @@
+<div>
+  <nav id="main_nav" class="navbar navbar-inverse bg-inverse" role="navigation"
+       style="padding-left:130px; border-radius: 0">
+    <ul class="nav navbar-nav">
+      <li class="active"><a routerLink="/home">Home</a></li>
+      <li><a routerLink="/">Logout</a></li>
+    </ul>
+  </nav>
+</div>
+
+<br>
+<div>
+  <div class="col-sm-3">
+
+    <div class="form-group">
+      <label for="userIdType">Type:</label>
+      <input id="userIdType" type="text" name="product" list="productName" class="selectpicker" class="form-control"/>
+      <datalist id="productName">
+        <option value="Pen">Pen</option>
+        <option value="Pencil">Pencil</option>
+        <option value="Paper">Paper</option>
+      </datalist>
+    </div>
+
+    <hr>
+
+    <app-tree-view (select)="selectTree($event)"></app-tree-view>
+
+    <hr>
+
+    <div class="panel panel-default">
+      <div class="panel-body" id="description"><b>Description: </b>{{activeTreeItem ? activeTreeItem.description :
+        ''}}<span id="text"></span>
+      </div>
+    </div>
+    <hr>
+    <div>
+      <button type="button" class="btn btn-block" (click)="addStep()" [disabled]="!activeTreeItem || !activeTreeItem.isStep">Add</button>
+    </div>
+    <br>
+    <div>
+      <button type="button" class="btn btn-block" (click)="execute()">Execute</button>
+    </div>
+  </div>
+  <div class="col-sm-9">
+    <app-drawing-board></app-drawing-board>
+
+    <app-match-visualize *ngIf="resultData" [ngModel]="resultData"></app-match-visualize>
+  </div>
+</div>
