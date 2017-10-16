@@ -37,6 +37,7 @@ export class HomePageComponent implements OnInit {
 
     this.executionService.executeFlow(steps).then((result) => {
       console.log(result);
+      this.resultData = result;
     });
   }
 

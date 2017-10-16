@@ -44,7 +44,8 @@
   </div>
   <div class="col-sm-9">
     <app-drawing-board></app-drawing-board>
-
-    <app-match-visualize *ngIf="resultData" [ngModel]="resultData"></app-match-visualize>
+  </div>
+  <div class="col-sm-12">
+    <app-match-visualize *ngIf="resultData"  [data]="resultData.data"></app-match-visualize>
   </div>
 </div>
