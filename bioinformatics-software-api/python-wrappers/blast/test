@@ -1,3 +1,9 @@
+<p><!--
+QBlastInfoBegin
+	Status=READY
+QBlastInfoEnd
+--><p>
+<PRE>
 BLASTN 2.7.0+
 Reference: Stephen F. Altschul, Thomas L. Madden, Alejandro
 A. Schaffer, Jinghui Zhang, Zheng Zhang, Webb Miller, and
@@ -3693,6 +3699,7 @@ X2: 33 (29.8 bits)
 X3: 110 (99.2 bits)
 S1: 28 (26.5 bits)
 S2: 48 (44.6 bits)
+
 
 
 
