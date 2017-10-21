@@ -17,6 +17,8 @@ app.listen(3000, function () {
 import Step from './workflow/step';
 import * as Task from './workflow/tasks';
 import WrapClustalOmega from './python-wrappers/clustal-omega/wrap-clustal-omega';
+// import WrapTCoffee from './python-wrappers/t-coffee/wrap-t-coffee';
+// import WrapDialign from './python-wrappers/dialign/wrap-dialign';
 import WrapBlast from './python-wrappers/blast/wrap-blast';
 
 
@@ -24,7 +26,7 @@ const step1 = new Step(Task.Blast, true);
 const step2 = new Step(Task.Visualize);
 const step3 = new Step(Task.Visualize);
 
-const input = ">gnl|GNOMON|17969.m Partial model predicted by Gnomon on Acanthaster planci unplaced genomic scaffold, OKI-Apl_1.0 oki_scaffold1752, whole genome shotgun sequence (NW_019093106.1)\n" +
+const input1 = ">gnl|GNOMON|17969.m Partial model predicted by Gnomon on Acanthaster planci unplaced genomic scaffold, OKI-Apl_1.0 oki_scaffold1752, whole genome shotgun sequence (NW_019093106.1)\n" +
     "AAGCAAAAAGCAGAGAAGGAGAAACCAGGTTTCCTTAGTAGGATCCACCAGGCATTCAGCTTTGAAGAGG\n" +
     "AACAGTCCAGGGATGATGAGCAGGATAGTCAAGACAGCGAGTCCGAGGATGGGAGTATTGACGAAGACCC\n" +
     "TGAGGGCAATGAAAACACGGTGGATCCAATCGACTGTTTGAGTGCCCCACGTGCTGTTGTCACCAAAGAA\n" +
@@ -77,7 +79,26 @@ const input = ">gnl|GNOMON|17969.m Partial model predicted by Gnomon on Acanthas
     "CGCTCAGCGCCGTCCATTTTCAGGGCTAGTTGATTCGGCAGGCTCCATCTATCCTGAGGGAAACTTCGGA\n" +
     "GGGAACCAGCTACTAGACGGTTCGAATAGTCTTTCGCCCCTATACCCAAGTCGGTTTGCAG";
 
-// const wco = new WrapClustalOmega(input);
+const input2 = ">HTL2\n" +
+    "LDTAPCLFSDGSPQKAAYVLWDQTILQQDITPLPSHETHSAQKGELLALICGLRAAKPWP\n" +
+    "SLNIFLDSKYLIKYLHSLAIGAFLGTSAHQTLQAALPPLLQGKTIYLHHVRSHTNLPDPI\n" +
+    "STFNEYTDSLILAPL\n" +
+    ">MMLV\n" +
+    "PDADHTWYTDGSSLLQEGQRKAGAAVTTETEVIWAKALDAGTSAQRAELIALTQALKMAE\n" +
+    "GKKLNVYTDSRYAFATAHIHGEIYRRRGLLTSEGKEIKNKDEILALLKALFLPKRLSIIH\n" +
+    "CPGHQKGHSAEARGNRMADQAARKAAITETPDTSTLL\n" +
+    ">HEPB\n" +
+    "RPGLCQVFADATPTGWGLVMGHQRMRGTFSAPLPIHTAELLAACFARSRSGANIIGTDNS\n" +
+    "VVLSRKYTSFPWLLGCAANWILRGTSFVYVPSALNPADDPSRGRLGLSRPLLRLPFRPTT\n" +
+    "GRTSLYADSPSVPSHLPDRVH\n" +
+    ">ECOL\n" +
+    "MLKQVEIFTDGSCLGNPGPGGYGAILRYRGREKTFSAGYTRTTNNRMELMAAIVALEALK\n" +
+    "EHCEVILSTDSQYVRQGITQWIHNWKKRGWKTADKKPVKNVDLWQRLDAALGQHQIKWEW\n" +
+    "VKGHAGHPENERCDELARAAAMNPTLEDTGYQVEV\n";
+
+const wco = new WrapClustalOmega(input1);
+// const wco = new WrapTCoffee(input1);
+// const wco = new WrapDialign(input2);
 // wco.exec();
 // wco.exec().then(result => {console.log(result)});
 
