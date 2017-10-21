@@ -14,7 +14,8 @@ app.listen(3000, function () {
 
 import Step from './workflow/step';
 import * as Task from './workflow/tasks';
-import WrapClustalOmega from './python-wrappers/clustal-omega/wrap-clustal-omega';
+// import WrapClustalOmega from './python-wrappers/clustal-omega/wrap-clustal-omega';
+import WrapTCoffee from './python-wrappers/t-coffee/wrap-t-coffee';
 
 
 const step1 = new Step(Task.Blast, true);
@@ -74,7 +75,7 @@ const input = ">gnl|GNOMON|17969.m Partial model predicted by Gnomon on Acanthas
     "CGCTCAGCGCCGTCCATTTTCAGGGCTAGTTGATTCGGCAGGCTCCATCTATCCTGAGGGAAACTTCGGA\n" +
     "GGGAACCAGCTACTAGACGGTTCGAATAGTCTTTCGCCCCTATACCCAAGTCGGTTTGCAG";
 
-const wco = new WrapClustalOmega(input);
+const wco = new WrapTCoffee(input);
 // wco.exec();
 wco.exec().then(result => {console.log(result)});
 
