@@ -21,14 +21,13 @@ router.post('/flow', (req, res) => {
     _.each(req.body.steps, (step, index) => {
         switch (step.text) {
             case 'User Input':
-                Task.Data.data = step.inputs[0].value;
-                steps.push(new Step(Task.Data, null, index === 0));
+                steps.push(new Step(new Task.Data(step.inputs[0].value), null, index === 0));
                 break;
             case 'BlastN':
-                steps.push(new Step(Task.Blast, null, index === 0));
+                steps.push(new Step(new Task.Blast(), null, index === 0));
                 break;
             case 'Visualize Output':
-                steps.push(new Step(Task.Visualize, null, index === 0));
+                steps.push(new Step(new Task.Visualize(), null, index === 0));
                 break;
         }
     });
@@ -38,6 +37,7 @@ router.post('/flow', (req, res) => {
     }
 
     steps[0].start().then(result => {
+        console.log(result);
         res.send(result);
     });
 });
