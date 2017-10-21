@@ -1,9 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 
-import { TreeViewComponent } from './tree-view/tree-view.component';
-import { DrawingBoardComponent } from './drawing-board/drawing-board.component';
-import { ExecuteFlowService } from '../services/work-flow/execute-flow.service';
-import { PairwiseBlastComponent } from '../visualizers/pairwise-blast/pairwise-blast.component';
+import { TreeViewComponent } from '../../components/tree-view/tree-view.component';
+import { DrawingBoardComponent } from '../../components/drawing-board/drawing-board.component';
+import { ExecuteFlowService } from '../../services/work-flow/execute-flow.service';
+import { PairwiseBlastComponent } from '../../components/visualizers/pairwise-blast/pairwise-blast.component';
 
 @Component({
   selector: 'app-home-page',
