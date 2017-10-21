@@ -260,6 +260,78 @@ export class TreeViewComponent implements OnInit {
           "description": "List of web services offered by ncbi"
         },
         {
+          "text": "MSA",
+          "children": [
+            {
+              "Id": "S007",
+              "text": "Clustal Omega",
+              "isStep": true,
+              "precedence": "4",
+              "inputs": [
+                {
+                  "name": "db",
+                  "type": "db",
+                  "value": ""
+                },
+                {
+                  "name": "query",
+                  "type": "seq",
+                  "value": ""
+                }
+              ],
+              "OutputParams": {
+                "output": ""
+              },
+              "description": "Perform multiple sequence alignment using progressive alignment construction."
+            },
+            {
+              "Id": "S008",
+              "text": "T-Coffee",
+              "isStep": true,
+              "precedence": "4",
+              "inputs": [
+                {
+                  "name": "db",
+                  "type": "db",
+                  "value": ""
+                },
+                {
+                  "name": "query",
+                  "type": "seq",
+                  "value": ""
+                }
+              ],
+              "OutputParams": {
+                "output": ""
+              },
+              "description": "Perform multiple sequence alignment using progressive alignment construction."
+            },
+            {
+              "Id": "S009",
+              "text": "DIALIGN",
+              "isStep": true,
+              "precedence": "4",
+              "inputs": [
+                {
+                  "name": "db",
+                  "type": "db",
+                  "value": ""
+                },
+                {
+                  "name": "query",
+                  "type": "seq",
+                  "value": ""
+                }
+              ],
+              "OutputParams": {
+                "output": ""
+              },
+              "description": "Perform multiple sequence alignment using block-base alignment."
+            }
+          ],
+          "description": "List of services to perform MSA"
+        },
+        {
           "text": "Visualize Output",
           "id": "V1",
           "precedence": "5",
