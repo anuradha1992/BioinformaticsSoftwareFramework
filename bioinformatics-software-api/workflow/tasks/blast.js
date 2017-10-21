@@ -3710,15 +3710,18 @@ S2: 48 (44.6 bits)
 
 `;
 
-    static execute(taskParams) {
-        const tempPath = path.join(__dirname, uuidv4());
+    a = 'BLASTN 2.7.0+\nReference: Stephen F. Altschul, Thomas L. Madden, Alejandro\nA. Schaffer, Jinghui Zhang, Zheng Zhang, Webb Miller, and\nDavid J. Lipman (1997), "Gapped BLAST and PSI-BLAST: a new\ngeneration of protein database search programs", Nucleic\nAcids Res. 25:3389-3402.\n\n\nRID: YP2X522301R\n\n\nDatabase: Nucleotide collection (nt)\n           44,954,477 sequences; 160,206,672,696 total letters\n\nQuery= \nLength=2\n\n\n<b>No significant similarity found.</b> For reasons why, <A HREF = "Blast.cgi?CMD=Web&PAGE_TYPE=BlastDocs&DOC_TYPE=FAQ"><b>click here</A>.</b><br><br>\n  Database: Nucleotide collection (nt)\n    Posted date:  Oct 18, 2017  11:25 PM\n  Number of letters in database: 160,206,672,696\n  Number of sequences in database:  44,954,477\n\nLambda      K        H\n   0.634    0.408    0.912 \nGapped\nLambda      K        H\n   0.625    0.410    0.780 \nMatrix: blastn matrix:2 -3\nGap Penalties: Existence: 5, Extension: 2\nNumber of Sequences: 44954477\nNumber of Hits to DB: 0\nNumber of extensions: 0\nNumber of successful extensions: 0\nNumber of sequences better than 10: 0\nNumber of HSP\'s better than 10 without gapping: 0\nNumber of HSP\'s gapped: 0\nNumber of HSP\'s successfully gapped: 0\nLength of query: 2\nLength of database: 160206672696\nLength adjustment: 0\nEffective length of query: 2\nEffective length of database: 160206672696\nEffective search space: 320413345392\nEffective search space used: 320413345392\nA: 0\nX1: 22 (20.1 bits)\nX2: 33 (29.8 bits)\nX3: 110 (99.2 bits)\nS1: 28 (26.5 bits)\nS2: 38 (35.6 bits)\n\n\n\n\n';
+
+    execute(...taskParams) {
+        // console.log(Blast.data === this.a);
+        // const tempPath = path.join(__dirname, uuidv4());
 
         // fs.writeFileSync(tempPath, taskParams);
 
-        // const wrap = new WrapBlast(tempPath);
+        const wrap = new WrapBlast('blastn', 'nr', taskParams[0]);
         //
-        // return wrap.exec();
-
-        return new Promise(resolve => resolve(Blast.data))
+        return wrap.exec();
+        //
+        // return new Promise(resolve => resolve(Blast.data))
     }
 }
