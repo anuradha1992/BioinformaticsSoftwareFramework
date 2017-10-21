@@ -4,8 +4,7 @@
 
 /**
  * This wrapper requires T-Coffee to be installed locally.
- * Commandline object for the TCoffee alignment program.
- * Can be downloaded from ttp://www.tcoffee.org/Projects_home_page/t_coffee_home_page.html
+ * Can be downloaded from http://www.tcoffee.org/Projects_home_page/t_coffee_home_page.html
  */
 
 import cmd from 'node-cmd';
