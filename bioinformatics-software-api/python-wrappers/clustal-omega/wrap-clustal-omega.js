@@ -1,7 +1,7 @@
 /**
  * Created by Vijini on 10/20/17.
  */
-import PythonShell from 'python-shell';
+
 import cmd from 'node-cmd';
 import fs from 'fs';
 import uuidv4 from 'uuid/v4';
@@ -52,8 +52,6 @@ export default class WrapClustalOmega {
             );
 
         });
-
-
 
     }
 }
