@@ -35,15 +35,11 @@ export default class WrapDialign {
 
         return new Promise((resolve, reject) => {
 
-            // Format command to execute
+            // Format DIALIGN command to execute
             const command = `${__dirname}/sources/dialign2-2 -fa -fn ${__dirname}/${outputFilename} ${__dirname}/${inputFilename}.fasta`;
-            console.log('COMMAND: ', command);
 
-            // Execute clustal omega command
+            // Execute DIALIGN command
             cmd.get(command, (err, data, stderr) => {
-
-                console.log('DATA: ', data);
-                console.log('ERROR: ', err)
 
                 // Read .fasta result
                 const content = fs.readFileSync(`${__dirname}/${outputFilename}`, 'utf8');

@@ -31,10 +31,10 @@ export default class WrapTCoffee {
 
         return new Promise((resolve, reject) => {
 
-            // Format command to execute
+            // Format t-coffee command to execute
             const command = `t_coffee -output clustalw  -infile ${__dirname}/${inputFilename}.fasta -outfile ${__dirname}/${outputFilename}.aln`;
 
-            // Execute clustal omega command
+            // Execute t-coffee command
             cmd.get( command, (err, data, stderr) => {
 
                 // Read .fasta result
