@@ -10,7 +10,8 @@ import { DrawingBoardComponent } from './home-page/drawing-board/drawing-board.c
 import { StepBoxComponent } from './home-page/drawing-board/step-box/step-box.component';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { MatchVisualizeComponent } from './home-page/match-visualize/match-visualize.component';
+import { PairwiseBlastComponent } from './visualizers/pairwise-blast/pairwise-blast.component';
+import { ClustalOmegaMsaComponent } from './visualizers/clustal-omega-msa/clustal-omega-msa.component';
 
 const routes = [
   {
@@ -31,7 +32,8 @@ const routes = [
     TreeViewComponent,
     DrawingBoardComponent,
     StepBoxComponent,
-    MatchVisualizeComponent
+    PairwiseBlastComponent,
+    ClustalOmegaMsaComponent
   ],
   imports: [
     BrowserModule,

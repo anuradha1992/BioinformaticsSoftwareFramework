@@ -1,0 +1,395 @@
+<p><!--
+QBlastInfoBegin
+	Status=READY
+QBlastInfoEnd
+--><p>
+<PRE>
+BLASTN 2.7.0+
+Reference: Stephen F. Altschul, Thomas L. Madden, Alejandro
+A. Schaffer, Jinghui Zhang, Zheng Zhang, Webb Miller, and
+David J. Lipman (1997), "Gapped BLAST and PSI-BLAST: a new
+generation of protein database search programs", Nucleic
+Acids Res. 25:3389-3402.
+
+
+RID: YP62UDHP015
+
+
+Database: Nucleotide collection (nt)
+           44,954,477 sequences; 160,206,672,696 total letters
+Query= gnl|GNOMON|17969.m Partial model predicted by Gnomon on Acanthaster
+planci unplaced genomic scaffold, OKI-Apl_1.0 oki_scaffold1752, whole
+genome shotgun sequence (NW_019093106.1)
+
+Length=210
+
+
+                                                                   Score     E
+Sequences producing significant alignments:                       (Bits)  Value
+
+XM_022241371.1  PREDICTED: Acanthaster planci uncharacterized ...  228     4e-56
+XM_006930154.3  PREDICTED: Felis catus anthrax toxin receptor ...  44.6    1.1  
+XM_003984080.4  PREDICTED: Felis catus anthrax toxin receptor ...  44.6    1.1  
+XM_011236724.2  PREDICTED: Ailuropoda melanoleuca anthrax toxi...  44.6    1.1  
+XM_019440590.1  PREDICTED: Panthera pardus anthrax toxin recep...  44.6    1.1  
+XM_019440588.1  PREDICTED: Panthera pardus anthrax toxin recep...  44.6    1.1  
+XM_019440587.1  PREDICTED: Panthera pardus anthrax toxin recep...  44.6    1.1  
+XM_015538033.1  PREDICTED: Panthera tigris altaica anthrax tox...  44.6    1.1  
+XM_015538032.1  PREDICTED: Panthera tigris altaica anthrax tox...  44.6    1.1  
+XM_007083391.2  PREDICTED: Panthera tigris altaica anthrax tox...  44.6    1.1  
+XM_015538031.1  PREDICTED: Panthera tigris altaica anthrax tox...  44.6    1.1  
+XM_015063981.1  PREDICTED: Acinonyx jubatus anthrax toxin rece...  44.6    1.1  
+XM_013051112.1  PREDICTED: Mustela putorius furo anthrax toxin...  44.6    1.1  
+XM_004742106.2  PREDICTED: Mustela putorius furo anthrax toxin...  44.6    1.1  
+XM_008699950.1  PREDICTED: Ursus maritimus anthrax toxin recep...  44.6    1.1  
+XM_018765919.1  PREDICTED: Scleropages formosus sodium- and ch...  42.8    3.7  
+XM_008117604.2  PREDICTED: Anolis carolinensis TP53 target 5 (...  42.8    3.7  
+XM_015820609.1  PREDICTED: Protobothrops mucrosquamatus SAM an...  42.8    3.7  
+XM_005099320.2  PREDICTED: Aplysia californica uncharacterized...  42.8    3.7  
+XM_012518552.1  PREDICTED: Dasypus novemcinctus fibrous sheath...  42.8    3.7  
+XM_005626251.1  PREDICTED: Canis lupus familiaris anthrax toxi...  42.8    3.7  
+NM_001250903.2  Glycine max uncharacterized LOC100527558 (LOC1...  42.8    3.7  
+BT092406.1  Soybean clone JCVI-FLGm-10J10 unknown mRNA             42.8    3.7  
+
+ALIGNMENTS
+>XM_022241371.1 PREDICTED: Acanthaster planci uncharacterized LOC110982733 (LOC110982733), 
+mRNA
+Length=2775
+
+ Score = 228 bits (252),  Expect = 4e-56
+ Identities = 140/149 (94%), Gaps = 0/149 (0%)
+ Strand=Plus/Plus
+
+Query  62   TTGAAGAGGAACAGTCCAGGGATGATGAGCAGGATAGTCAAGACAGCGAGTCCGAGGATG  121
+            ||||||||||||||||||||||||||||||||||||| || |||||||||||||||||||
+Sbjct  608  TTGAAGAGGAACAGTCCAGGGATGATGAGCAGGATAGCCATGACAGCGAGTCCGAGGATG  667
+
+Query  122  GGAGTATTGACGAAGACCCTGAGGGCAATGAAAACACGGTGGATCCAATCGACTGTTTGA  181
+             | ||||||| |||||| | ||||||||||||||||||||||||||||||||||||||||
+Sbjct  668  AGGGTATTGAAGAAGACTCGGAGGGCAATGAAAACACGGTGGATCCAATCGACTGTTTGA  727
+
+Query  182  GTGCCCCACGTGCTGTTGTCACCAAAGAA  210
+            ||||||||| ||||||||||| |||||||
+Sbjct  728  GTGCCCCACATGCTGTTGTCATCAAAGAA  756
+
+
+>XM_006930154.3 PREDICTED: Felis catus anthrax toxin receptor 1 (ANTXR1), transcript 
+variant X2, mRNA
+Length=3325
+
+ Score = 44.6 bits (48),  Expect = 1.1
+ Identities = 30/34 (88%), Gaps = 0/34 (0%)
+ Strand=Plus/Minus
+
+Query  30    TTTCCTTAGTAGGATCCACCAGGCATTCAGCTTT  63
+             |||||||||||||| |||| |||||| ||| |||
+Sbjct  1785  TTTCCTTAGTAGGACCCACAAGGCATCCAGTTTT  1752
+
+
+>XM_003984080.4 PREDICTED: Felis catus anthrax toxin receptor 1 (ANTXR1), transcript 
+variant X1, mRNA
+Length=5985
+
+ Score = 44.6 bits (48),  Expect = 1.1
+ Identities = 30/34 (88%), Gaps = 0/34 (0%)
+ Strand=Plus/Minus
+
+Query  30    TTTCCTTAGTAGGATCCACCAGGCATTCAGCTTT  63
+             |||||||||||||| |||| |||||| ||| |||
+Sbjct  1782  TTTCCTTAGTAGGACCCACAAGGCATCCAGTTTT  1749
+
+
+>XM_011236724.2 PREDICTED: Ailuropoda melanoleuca anthrax toxin receptor 1 (ANTXR1), 
+mRNA
+Length=5854
+
+ Score = 44.6 bits (48),  Expect = 1.1
+ Identities = 30/34 (88%), Gaps = 0/34 (0%)
+ Strand=Plus/Minus
+
+Query  30    TTTCCTTAGTAGGATCCACCAGGCATTCAGCTTT  63
+             |||||||||||||| |||| |||||| ||| |||
+Sbjct  1805  TTTCCTTAGTAGGACCCACAAGGCATCCAGTTTT  1772
+
+
+>XM_019440590.1 PREDICTED: Panthera pardus anthrax toxin receptor 1 (ANTXR1), 
+transcript variant X3, mRNA
+Length=6343
+
+ Score = 44.6 bits (48),  Expect = 1.1
+ Identities = 30/34 (88%), Gaps = 0/34 (0%)
+ Strand=Plus/Minus
+
+Query  30    TTTCCTTAGTAGGATCCACCAGGCATTCAGCTTT  63
+             |||||||||||||| |||| |||||| ||| |||
+Sbjct  1782  TTTCCTTAGTAGGACCCACAAGGCATCCAGTTTT  1749
+
+
+>XM_019440588.1 PREDICTED: Panthera pardus anthrax toxin receptor 1 (ANTXR1), 
+transcript variant X2, mRNA
+Length=2645
+
+ Score = 44.6 bits (48),  Expect = 1.1
+ Identities = 30/34 (88%), Gaps = 0/34 (0%)
+ Strand=Plus/Minus
+
+Query  30    TTTCCTTAGTAGGATCCACCAGGCATTCAGCTTT  63
+             |||||||||||||| |||| |||||| ||| |||
+Sbjct  1783  TTTCCTTAGTAGGACCCACAAGGCATCCAGTTTT  1750
+
+
+>XM_019440587.1 PREDICTED: Panthera pardus anthrax toxin receptor 1 (ANTXR1), 
+transcript variant X1, mRNA
+Length=5985
+
+ Score = 44.6 bits (48),  Expect = 1.1
+ Identities = 30/34 (88%), Gaps = 0/34 (0%)
+ Strand=Plus/Minus
+
+Query  30    TTTCCTTAGTAGGATCCACCAGGCATTCAGCTTT  63
+             |||||||||||||| |||| |||||| ||| |||
+Sbjct  1780  TTTCCTTAGTAGGACCCACAAGGCATCCAGTTTT  1747
+
+
+>XM_015538033.1 PREDICTED: Panthera tigris altaica anthrax toxin receptor 1 (ANTXR1), 
+transcript variant X4, mRNA
+Length=3072
+
+ Score = 44.6 bits (48),  Expect = 1.1
+ Identities = 30/34 (88%), Gaps = 0/34 (0%)
+ Strand=Plus/Minus
+
+Query  30    TTTCCTTAGTAGGATCCACCAGGCATTCAGCTTT  63
+             |||||||||||||| |||| |||||| ||| |||
+Sbjct  1768  TTTCCTTAGTAGGACCCACAAGGCATCCAGTTTT  1735
+
+
+>XM_015538032.1 PREDICTED: Panthera tigris altaica anthrax toxin receptor 1 (ANTXR1), 
+transcript variant X3, mRNA
+Length=2021
+
+ Score = 44.6 bits (48),  Expect = 1.1
+ Identities = 30/34 (88%), Gaps = 0/34 (0%)
+ Strand=Plus/Minus
+
+Query  30    TTTCCTTAGTAGGATCCACCAGGCATTCAGCTTT  63
+             |||||||||||||| |||| |||||| ||| |||
+Sbjct  1769  TTTCCTTAGTAGGACCCACAAGGCATCCAGTTTT  1736
+
+
+>XM_007083391.2 PREDICTED: Panthera tigris altaica anthrax toxin receptor 1 (ANTXR1), 
+transcript variant X2, mRNA
+Length=5914
+
+ Score = 44.6 bits (48),  Expect = 1.1
+ Identities = 30/34 (88%), Gaps = 0/34 (0%)
+ Strand=Plus/Minus
+
+Query  30    TTTCCTTAGTAGGATCCACCAGGCATTCAGCTTT  63
+             |||||||||||||| |||| |||||| ||| |||
+Sbjct  1769  TTTCCTTAGTAGGACCCACAAGGCATCCAGTTTT  1736
+
+
+>XM_015538031.1 PREDICTED: Panthera tigris altaica anthrax toxin receptor 1 (ANTXR1), 
+transcript variant X1, mRNA
+Length=2669
+
+ Score = 44.6 bits (48),  Expect = 1.1
+ Identities = 30/34 (88%), Gaps = 0/34 (0%)
+ Strand=Plus/Minus
+
+Query  30    TTTCCTTAGTAGGATCCACCAGGCATTCAGCTTT  63
+             |||||||||||||| |||| |||||| ||| |||
+Sbjct  1772  TTTCCTTAGTAGGACCCACAAGGCATCCAGTTTT  1739
+
+
+>XM_015063981.1 PREDICTED: Acinonyx jubatus anthrax toxin receptor 1 (ANTXR1), 
+transcript variant X1, mRNA
+Length=2770
+
+ Score = 44.6 bits (48),  Expect = 1.1
+ Identities = 30/34 (88%), Gaps = 0/34 (0%)
+ Strand=Plus/Minus
+
+Query  30    TTTCCTTAGTAGGATCCACCAGGCATTCAGCTTT  63
+             |||||||||||||| |||| |||||| ||| |||
+Sbjct  1771  TTTCCTTAGTAGGACCCACAAGGCATCCAGTTTT  1738
+
+
+>XM_013051112.1 PREDICTED: Mustela putorius furo anthrax toxin receptor 1 (ANTXR1), 
+transcript variant X2, mRNA
+Length=5516
+
+ Score = 44.6 bits (48),  Expect = 1.1
+ Identities = 30/34 (88%), Gaps = 0/34 (0%)
+ Strand=Plus/Minus
+
+Query  30    TTTCCTTAGTAGGATCCACCAGGCATTCAGCTTT  63
+             |||||||||||||| |||| |||||| ||| |||
+Sbjct  1514  TTTCCTTAGTAGGACCCACAAGGCATCCAGTTTT  1481
+
+
+>XM_004742106.2 PREDICTED: Mustela putorius furo anthrax toxin receptor 1 (ANTXR1), 
+transcript variant X1, mRNA
+Length=5851
+
+ Score = 44.6 bits (48),  Expect = 1.1
+ Identities = 30/34 (88%), Gaps = 0/34 (0%)
+ Strand=Plus/Minus
+
+Query  30    TTTCCTTAGTAGGATCCACCAGGCATTCAGCTTT  63
+             |||||||||||||| |||| |||||| ||| |||
+Sbjct  1849  TTTCCTTAGTAGGACCCACAAGGCATCCAGTTTT  1816
+
+
+>XM_008699950.1 PREDICTED: Ursus maritimus anthrax toxin receptor 1 (ANTXR1), 
+transcript variant X1, mRNA
+Length=1911
+
+ Score = 44.6 bits (48),  Expect = 1.1
+ Identities = 30/34 (88%), Gaps = 0/34 (0%)
+ Strand=Plus/Minus
+
+Query  30    TTTCCTTAGTAGGATCCACCAGGCATTCAGCTTT  63
+             |||||||||||||| |||| |||||| ||| |||
+Sbjct  1720  TTTCCTTAGTAGGACCCACAAGGCATCCAGTTTT  1687
+
+
+>XM_018765919.1 PREDICTED: Scleropages formosus sodium- and chloride-dependent 
+transporter XTRP3-like (LOC108942512), mRNA
+Length=1994
+
+ Score = 42.8 bits (46),  Expect = 3.7
+ Identities = 28/31 (90%), Gaps = 0/31 (0%)
+ Strand=Plus/Minus
+
+Query  64    GAAGAGGAACAGTCCAGGGATGATGAGCAGG  94
+             ||||||||||||||||  |||||||||| ||
+Sbjct  1574  GAAGAGGAACAGTCCAACGATGATGAGCGGG  1544
+
+
+>XM_008117604.2 PREDICTED: Anolis carolinensis TP53 target 5 (tp53tg5), mRNA
+Length=535
+
+ Score = 42.8 bits (46),  Expect = 3.7
+ Identities = 29/33 (88%), Gaps = 0/33 (0%)
+ Strand=Plus/Minus
+
+Query  53   CATTCAGCTTTGAAGAGGAACAGTCCAGGGATG  85
+            |||||||||||| ||||||| | ||||| ||||
+Sbjct  238  CATTCAGCTTTGCAGAGGAAGACTCCAGAGATG  206
+
+
+>XM_015820609.1 PREDICTED: Protobothrops mucrosquamatus SAM and SH3 domain containing 
+3 (SASH3), mRNA
+Length=1805
+
+ Score = 42.8 bits (46),  Expect = 3.7
+ Identities = 31/35 (89%), Gaps = 1/35 (3%)
+ Strand=Plus/Plus
+
+Query  46   CACCAGG-CATTCAGCTTTGAAGAGGAACAGTCCA  79
+            ||||| | |||||||| ||||||||||| ||||||
+Sbjct  154  CACCAAGACATTCAGCCTTGAAGAGGAAGAGTCCA  188
+
+
+>XM_005099320.2 PREDICTED: Aplysia californica uncharacterized LOC101845695 (LOC101845695), 
+mRNA
+Length=25816
+
+ Score = 42.8 bits (46),  Expect = 3.7
+ Identities = 23/23 (100%), Gaps = 0/23 (0%)
+ Strand=Plus/Plus
+
+Query  2      AGCAAAAAGCAGAGAAGGAGAAA  24
+              |||||||||||||||||||||||
+Sbjct  13436  AGCAAAAAGCAGAGAAGGAGAAA  13458
+
+
+>XM_012518552.1 PREDICTED: Dasypus novemcinctus fibrous sheath-interacting protein 
+2-like (LOC101433573), mRNA
+Length=20283
+
+ Score = 42.8 bits (46),  Expect = 3.7
+ Identities = 28/31 (90%), Gaps = 0/31 (0%)
+ Strand=Plus/Plus
+
+Query  124    AGTATTGACGAAGACCCTGAGGGCAATGAAA  154
+              |||||||  ||||||||||||||||| ||||
+Sbjct  15517  AGTATTGCTGAAGACCCTGAGGGCAAAGAAA  15547
+
+
+>XM_005626251.1 PREDICTED: Canis lupus familiaris anthrax toxin receptor 1 (ANTXR1), 
+mRNA
+Length=5290
+
+ Score = 42.8 bits (46),  Expect = 3.7
+ Identities = 29/33 (88%), Gaps = 0/33 (0%)
+ Strand=Plus/Minus
+
+Query  31    TTCCTTAGTAGGATCCACCAGGCATTCAGCTTT  63
+             ||||||||||||| |||| |||||| ||| |||
+Sbjct  1265  TTCCTTAGTAGGACCCACAAGGCATCCAGTTTT  1233
+
+
+>NM_001250903.2 Glycine max uncharacterized LOC100527558 (LOC100527558), mRNA
+Length=604
+
+ Score = 42.8 bits (46),  Expect = 3.7
+ Identities = 26/28 (93%), Gaps = 0/28 (0%)
+ Strand=Plus/Plus
+
+Query  127  ATTGACGAAGACCCTGAGGGCAATGAAA  154
+            |||||| |||||||||||||||| ||||
+Sbjct  208  ATTGACAAAGACCCTGAGGGCAAGGAAA  235
+
+
+>BT092406.1 Soybean clone JCVI-FLGm-10J10 unknown mRNA
+Length=605
+
+ Score = 42.8 bits (46),  Expect = 3.7
+ Identities = 26/28 (93%), Gaps = 0/28 (0%)
+ Strand=Plus/Plus
+
+Query  127  ATTGACGAAGACCCTGAGGGCAATGAAA  154
+            |||||| |||||||||||||||| ||||
+Sbjct  208  ATTGACAAAGACCCTGAGGGCAAGGAAA  235
+
+
+  Database: Nucleotide collection (nt)
+    Posted date:  Oct 18, 2017  11:25 PM
+  Number of letters in database: 160,206,672,696
+  Number of sequences in database:  44,954,477
+
+Lambda      K        H
+   0.634    0.408    0.912 
+Gapped
+Lambda      K        H
+   0.625    0.410    0.780 
+Matrix: blastn matrix:2 -3
+Gap Penalties: Existence: 5, Extension: 2
+Number of Sequences: 44954477
+Number of Hits to DB: 17352560
+Number of extensions: 27045
+Number of successful extensions: 27045
+Number of sequences better than 10: 3
+Number of HSP's better than 10 without gapping: 0
+Number of HSP's gapped: 27045
+Number of HSP's successfully gapped: 3
+Length of query: 210
+Length of database: 160206672696
+Length adjustment: 36
+Effective length of query: 174
+Effective length of database: 158588311524
+Effective search space: 27594366205176
+Effective search space used: 27594366205176
+A: 0
+X1: 22 (20.1 bits)
+X2: 33 (29.8 bits)
+X3: 110 (99.2 bits)
+S1: 28 (26.5 bits)
+S2: 45 (41.9 bits)
+
+
+
+

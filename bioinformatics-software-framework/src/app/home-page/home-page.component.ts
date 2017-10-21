@@ -3,16 +3,17 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { TreeViewComponent } from './tree-view/tree-view.component';
 import { DrawingBoardComponent } from './drawing-board/drawing-board.component';
 import { ExecuteFlowService } from '../services/work-flow/execute-flow.service';
-import { MatchVisualizeComponent } from './match-visualize/match-visualize.component';
+import { PairwiseBlastComponent } from '../visualizers/pairwise-blast/pairwise-blast.component';
 
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.css'],
-  providers: [TreeViewComponent, DrawingBoardComponent, ExecuteFlowService, MatchVisualizeComponent]
+  providers: [TreeViewComponent, DrawingBoardComponent, ExecuteFlowService, PairwiseBlastComponent]
 })
 export class HomePageComponent implements OnInit {
   @ViewChild(DrawingBoardComponent) drawingBoard: DrawingBoardComponent;
+  @ViewChild(PairwiseBlastComponent) pairwiseBlasterView: PairwiseBlastComponent;
 
   private activeTreeItem: any = null;
   private resultData: any = null;
@@ -36,8 +37,12 @@ export class HomePageComponent implements OnInit {
     const steps = this.drawingBoard.getStepSequence();
 
     this.executionService.executeFlow(steps).then((result) => {
-      console.log(result);
       this.resultData = result;
+      switch (result.type) {
+        case '':
+          this.pairwiseBlasterView.render(result.data);
+          break;
+      }
     });
   }
 

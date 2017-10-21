@@ -2,22 +2,29 @@ import { Component, Input, OnInit } from '@angular/core';
 import blasterjs from 'biojs-vis-blasterjs';
 
 @Component({
-  selector: 'app-match-visualize',
-  templateUrl: './match-visualize.component.html',
-  styleUrls: ['./match-visualize.component.css']
+  selector: 'app-pairwise-blast',
+  templateUrl: './pairwise-blast.component.html',
+  styleUrls: ['./pairwise-blast.component.css']
 })
-export class MatchVisualizeComponent implements OnInit {
-  @Input() data: any;
+export class PairwiseBlastComponent implements OnInit {
+  // @Input() data: any;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
-    const alignments = this.data;
-    const instance = new blasterjs({
+
+  }
+
+  render(data) {
+    const alignments = data;
+
+    new blasterjs({
       string: alignments,
       multipleAlignments: "blast-multiple-alignments",
       alignmentsTable: "blast-alignments-table",
       singleAlignment: "blast-single-alignment"
     });
   }
+
 }
