@@ -8,8 +8,8 @@
  */
 
 // TODO Should setup DIALIGN2_DIR environment variable as given
-// TODO Windows : set DIALIGN2_DIR = <path>/dialign2_dir
-// TODO OSX : export DIALIGN2_DIR = <path>/dialign2_dir
+// TODO Windows : set DIALIGN2_DIR=<parent_path>/dialign2_dir
+// TODO OSX : export DIALIGN2_DIR=<parent_path>/dialign2_dir
 
 import cmd from 'node-cmd';
 import fs from 'fs';
@@ -35,10 +35,10 @@ export default class WrapDialign {
 
         return new Promise((resolve, reject) => {
 
-            // Format command to execute
-            const command = `${__dirname}/dialign2-2 -fa -fn ${__dirname}/${outputFilename} ${__dirname}/${inputFilename}.fasta`;
+            // Format DIALIGN command to execute
+            const command = `${__dirname}/sources/dialign2-2 -fa -fn ${__dirname}/${outputFilename} ${__dirname}/${inputFilename}.fasta`;
 
-            // Execute clustal omega command
+            // Execute DIALIGN command
             cmd.get(command, (err, data, stderr) => {
 
                 // Read .fasta result
