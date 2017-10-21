@@ -7,7 +7,7 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { TreeViewComponent } from './components/tree-view/tree-view.component';
 import { DrawingBoardComponent } from './components/drawing-board/drawing-board.component';
-import { StepBoxComponent } from './components/drawing-board/step-box/step-box.component';
+import { StepBoxComponent } from './components/step-box/step-box.component';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { PairwiseBlastComponent } from './components/visualizers/pairwise-blast/pairwise-blast.component';

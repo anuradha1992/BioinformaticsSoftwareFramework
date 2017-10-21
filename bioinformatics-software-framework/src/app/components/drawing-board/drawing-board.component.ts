@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
-import { StepBoxComponent } from './step-box/step-box.component';
+import { StepBoxComponent } from '../step-box/step-box.component';
 import * as _ from 'lodash';
 import { current } from 'codelyzer/util/syntaxKind';
 import uuidv4 from 'uuid/v4';
