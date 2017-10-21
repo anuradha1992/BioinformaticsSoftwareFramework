@@ -26,6 +26,9 @@ router.post('/flow', (req, res) => {
             case 'BlastN':
                 steps.push(new Step(new Task.Blast(), null, index === 0));
                 break;
+            case 'Clustal Omega':
+                steps.push(new Step(new Task.ClustalOmega(), null, index === 0));
+                break;
             case 'Visualize Output':
                 steps.push(new Step(new Task.Visualize(), null, index === 0));
                 break;
