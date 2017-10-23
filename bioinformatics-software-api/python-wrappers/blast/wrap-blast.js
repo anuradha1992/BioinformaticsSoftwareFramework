@@ -37,7 +37,7 @@ export default class WrapBlast {
                     }
                 }
 
-                resolve(lines.join('\n'));
+                resolve({step: 'blast', output: lines.join('\n')});
             });
         });
 

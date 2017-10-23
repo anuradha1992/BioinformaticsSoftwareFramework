@@ -39,7 +39,7 @@ export default class WrapClustalOmega {
                     const content = fs.readFileSync(`${__dirname}/${outputFilename}.fasta`, 'utf8');
                     // console.log('CONTENT: ', content);
 
-                    resolve(content);
+                    resolve({step: 'clustal-omega', output: content});
 
                     // Remove input file
                     fs.unlinkSync(`${__dirname}/${inputFilename}.fasta`);

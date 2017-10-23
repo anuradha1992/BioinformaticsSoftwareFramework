@@ -15,5 +15,3 @@ result_handle = NCBIWWW.qblast(program=program, database=database, sequence=sequ
 blast_results = result_handle.read()
 
 print(json.dumps(blast_results))
-with open('m_cold_blast.out', 'w') as f:
-    f.write(blast_results)
