@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+declare const msa: any;
+
 @Component({
   selector: 'app-clustal-omega-msa',
   templateUrl: './clustal-omega-msa.component.html',
@@ -7,9 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClustalOmegaMsaComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }
 
+  render(data) {
+    const alignments = data;
+    const seqs = msa.io.fasta.parse(alignments);
+    const m = msa({
+      el: document.getElementById('clustal-omega-msa'),
+      seqs: seqs
+    });
+
+    m.render();
+  }
+
+  clear() {
+    document.getElementById('clustal-omega-msa').innerHTML = '';
+  }
 }

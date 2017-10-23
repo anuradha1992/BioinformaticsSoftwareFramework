@@ -27,4 +27,9 @@ export class PairwiseBlastComponent implements OnInit {
     });
   }
 
+  clear() {
+    document.getElementById('blast-multiple-alignments').innerHTML = '';
+    document.getElementById('blast-alignments-table').innerHTML = '';
+    document.getElementById('blast-single-alignment').innerHTML = '';
+  }
 }
