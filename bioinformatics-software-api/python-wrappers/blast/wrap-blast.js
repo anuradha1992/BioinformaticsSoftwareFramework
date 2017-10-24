@@ -6,33 +6,39 @@ import PythonShell from 'python-shell';
 export default class WrapBlast {
     options;
 
-    // TODO these are the parameters
-    constructor(tempFastaPath = null, arg2 = null, arg3 = null) {
+    constructor(program = 'blastn', database = 'nr', sequence = null, outputFormat = 'Text') {
         this.options = {
             mode: 'json',
-            // pythonPath: 'python',
+            pythonPath: process.env.PYTHON_PATH || 'python',
             pythonOptions: ['-u'],
-            // scriptPath: './blast',
-            args: [tempFastaPath, arg2, arg3]
+            scriptPath: `${__dirname}`,
+            args: [program, database, sequence, outputFormat]
         };
     }
 
     exec() {
-        const shell = new PythonShell('./python-wrappers/blast/blast.py', this.options);
-        let result = null;
-
-        shell.on('message', (message) => {
-            // console.log('MESSAGE: ',message);
-            result = message;
-        });
+        const shell = new PythonShell(`blast.py`, this.options);
 
         return new Promise((resolve, reject) => {
             shell.end((err) => {
                 if (err) reject();
-                console.log('finished');
-                resolve(result);
+
             });
-            // resolve('DUMMY DATA')
+
+            shell.on('message', (message) => {
+                const lines = message.split('\n');
+                const count = lines.length;
+
+                for (let i = 0; i < count; i++) {
+                    let line = lines.shift();
+
+                    if(line.match(/<PRE>/)) {
+                        break;
+                    }
+                }
+
+                resolve({step: 'blast', output: lines.join('\n')});
+            });
         });
 
     }

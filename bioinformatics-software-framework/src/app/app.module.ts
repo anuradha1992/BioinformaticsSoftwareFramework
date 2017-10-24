@@ -3,14 +3,15 @@ import { NgModule } from '@angular/core';
 import { RouterModule }   from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { HomePageComponent } from './home-page/home-page.component';
-import { LoginPageComponent } from './login-page/login-page.component';
-import { TreeViewComponent } from './home-page/tree-view/tree-view.component';
-import { DrawingBoardComponent } from './home-page/drawing-board/drawing-board.component';
-import { StepBoxComponent } from './home-page/drawing-board/step-box/step-box.component';
+import { HomePageComponent } from './pages/home-page/home-page.component';
+import { LoginPageComponent } from './pages/login-page/login-page.component';
+import { TreeViewComponent } from './components/tree-view/tree-view.component';
+import { DrawingBoardComponent } from './components/drawing-board/drawing-board.component';
+import { StepBoxComponent } from './components/step-box/step-box.component';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { MatchVisualizeComponent } from './home-page/match-visualize/match-visualize.component';
+import { PairwiseBlastComponent } from './components/visualizers/pairwise-blast/pairwise-blast.component';
+import { ClustalOmegaMsaComponent } from './components/visualizers/clustal-omega-msa/clustal-omega-msa.component';
 
 const routes = [
   {
@@ -31,7 +32,8 @@ const routes = [
     TreeViewComponent,
     DrawingBoardComponent,
     StepBoxComponent,
-    MatchVisualizeComponent
+    PairwiseBlastComponent,
+    ClustalOmegaMsaComponent
   ],
   imports: [
     BrowserModule,

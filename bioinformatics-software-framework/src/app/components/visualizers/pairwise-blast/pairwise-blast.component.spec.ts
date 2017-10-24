@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MatchVisualizeComponent } from './match-visualize.component';
+import { PairwiseBlastComponent } from './pairwise-blast.component';
 
-describe('MatchVisualizeComponent', () => {
-  let component: MatchVisualizeComponent;
-  let fixture: ComponentFixture<MatchVisualizeComponent>;
+describe('PairwiseBlastComponent', () => {
+  let component: PairwiseBlastComponent;
+  let fixture: ComponentFixture<PairwiseBlastComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MatchVisualizeComponent ]
+      declarations: [ PairwiseBlastComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MatchVisualizeComponent);
+    fixture = TestBed.createComponent(PairwiseBlastComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

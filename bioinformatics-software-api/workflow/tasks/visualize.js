@@ -1,14 +1,15 @@
 /**
  * Created by anuradhawick on 9/11/17.
  */
+
 export default class Visualize {
 
-    static execute(...taskParams) {
+    execute(...taskParams) {
         return new Promise((resolve) => {
             const resultObject = {
-                type: 'seqMatches',
+                type: taskParams[0].step,
                 command: 'visualize',
-                data: taskParams[0]
+                data: taskParams[0].output
             };
 
             resolve(resultObject);
