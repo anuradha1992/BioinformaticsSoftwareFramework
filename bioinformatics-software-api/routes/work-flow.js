@@ -40,8 +40,10 @@ router.post('/flow', (req, res) => {
     }
 
     steps[0].start().then(result => {
-        console.log(result);
+        console.log('SENDING RESULT OVER HTTP');
         res.send(result);
+    }).catch(() => {
+        console.log('ERROR OCCURRED')
     });
 });
 
