@@ -15,11 +15,11 @@ import { ClustalOmegaMsaComponent } from './components/visualizers/clustal-omega
 
 const routes = [
   {
-    path: 'home',
+    path: '',
     component: HomePageComponent
   },
   {
-    path: '',
+    path: 'login',
     component: LoginPageComponent
   }
 ];
