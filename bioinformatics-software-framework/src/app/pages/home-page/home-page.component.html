@@ -37,11 +37,19 @@
     </div>
     <hr>
     <div>
-      <button type="button" class="btn btn-block" (click)="addStep()" [disabled]="!activeTreeItem || !activeTreeItem.isStep">Add</button>
+      <button type="button" class="btn btn-block" (click)="addStep()" [disabled]="!activeTreeItem || !activeTreeItem.isStep">
+        Add
+        <i class='glyphicon glyphicon-info-sign' data-toggle="popover" data-trigger="hover" data-placement="right" data-content="Select a component and click here to add it"></i>
+      </button>
     </div>
     <br>
     <div>
-      <button type="button" class="btn btn-block" (click)="execute()">Execute</button>
+
+      <button type="button" class="btn btn-block" (click)="execute()">
+        Execute
+        <i class='glyphicon glyphicon-info-sign' data-toggle="popover" data-trigger="hover" data-placement="right" data-content="Click here to view results"></i>
+      </button>
+
     </div>
   </div>
   <div class="col-sm-9">
