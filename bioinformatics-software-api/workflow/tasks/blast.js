@@ -4,9 +4,15 @@
 import WrapBlast from '../../python-wrappers/blast/wrap-blast';
 
 export default class Blast {
+    program = 'blastn';
+    database = 'nr';
+
+    constructor(program) {
+        this.program = program;
+    }
 
     execute(...taskParams) {
-        const wrap = new WrapBlast('blastn', 'nr', taskParams[0]);
+        const wrap = new WrapBlast(this.program, this.database, taskParams[0]);
 
         return wrap.exec();
     }

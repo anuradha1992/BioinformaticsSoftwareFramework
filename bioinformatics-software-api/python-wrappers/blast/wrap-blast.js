@@ -17,28 +17,29 @@ export default class WrapBlast {
     }
 
     exec() {
-        const shell = new PythonShell(`blast.py`, this.options);
+        // const shell = new PythonShell(`blast.py`, this.options);
 
         return new Promise((resolve, reject) => {
-            shell.end((err) => {
-                if (err) reject();
+            // shell.end((err) => {
+            //     if (err) reject();
+            //
+            // });
 
-            });
+            // shell.on('message', (message) => {
+            //     const lines = message.split('\n');
+            //     const count = lines.length;
+            //
+            //     for (let i = 0; i < count; i++) {
+            //         let line = lines.shift();
+            //
+            //         if(line.match(/<PRE>/)) {
+            //             break;
+            //         }
+            //     }
 
-            shell.on('message', (message) => {
-                const lines = message.split('\n');
-                const count = lines.length;
-
-                for (let i = 0; i < count; i++) {
-                    let line = lines.shift();
-
-                    if(line.match(/<PRE>/)) {
-                        break;
-                    }
-                }
-
-                resolve({step: 'blast', output: lines.join('\n')});
-            });
+                // resolve({step: 'blast', output: lines.join('\n')});
+                resolve({step: 'blast', output: ""});
+            // });
         });
 
     }
