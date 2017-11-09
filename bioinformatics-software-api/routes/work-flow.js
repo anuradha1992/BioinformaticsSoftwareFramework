@@ -30,7 +30,7 @@ router.post('/flow', (req, res) => {
                     blastInputs[input.name] = input.value
                 });
 
-                steps.push(new Step(new Task.Blast(_.lowerCase(blastInputs['N/P'])), null, index === 0));
+                steps.push(new Step(new Task.Blast(`blast${_.lowerCase(blastInputs['N/P'])}`), null, index === 0));
                 break;
             case 'Clustal Omega':
                 steps.push(new Step(new Task.ClustalOmega(), null, index === 0));
@@ -48,8 +48,8 @@ router.post('/flow', (req, res) => {
     steps[0].start().then(result => {
         console.log('SENDING RESULT OVER HTTP');
         res.send(result);
-    }).catch(() => {
-        console.log('ERROR OCCURRED')
+    }).catch((e) => {
+        console.log('ERROR OCCURRED', e)
     });
 });
 
