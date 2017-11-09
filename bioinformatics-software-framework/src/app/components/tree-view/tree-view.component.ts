@@ -126,25 +126,26 @@ export class TreeViewComponent implements OnInit {
           "children": [
             {
               "Id": "S001",
-              "text": "BlastN",
+              "text": "Blast",
               "isStep": true,
               "precedence": "4",
               "inputs": [
                 {
-                  "name": "db",
-                  "type": "db",
-                  "value": ""
+                  "name": "N/P",
+                  "type": "select",
+                  "selectors":["N", "P"],
+                  "value": "N"
                 },
-                {
-                  "name": "query",
-                  "type": "seq",
-                  "value": ""
-                }
+                // {
+                //   "name": "query",
+                //   "type": "seq",
+                //   "value": ""
+                // }
               ],
               "OutputParams": {
                 "output": ""
               },
-              "description": "BlastN compares sequences by local alignment"
+              "description": "Blast compares sequences by local alignment"
             },
             // {
             //   "Id": "S002",
