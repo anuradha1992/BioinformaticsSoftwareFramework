@@ -1,10 +1,13 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import * as _ from 'lodash';
 
 import { TreeViewComponent } from '../../components/tree-view/tree-view.component';
 import { DrawingBoardComponent } from '../../components/drawing-board/drawing-board.component';
 import { ExecuteFlowService } from '../../services/work-flow/execute-flow.service';
 import { PairwiseBlastComponent } from '../../components/visualizers/pairwise-blast/pairwise-blast.component';
 import { ClustalOmegaMsaComponent } from '../../components/visualizers/clustal-omega-msa/clustal-omega-msa.component';
+
+declare const $;
 
 @Component({
   selector: 'app-home-page',
@@ -19,6 +22,7 @@ export class HomePageComponent implements OnInit {
 
   private activeTreeItem: any = null;
   private resultData: any = null;
+  private helpStep: number = 1;
 
   constructor(private executionService: ExecuteFlowService) {
   }
@@ -57,6 +61,23 @@ export class HomePageComponent implements OnInit {
   clearUI() {
     this.pairwiseBlasterView.clear();
     this.clustalOmegaView.clear();
+  }
+
+  openHelpModal() {
+    this.helpStep = 1;
+    $("[modal='hom-page-help']").modal('show');
+  }
+
+  prevHelpModalStep() {
+    const stepVal = this.helpStep - 1;
+
+    this.helpStep = _.max([stepVal, 1]);
+  }
+
+  nextHelpModalStep() {
+    const stepVal = this.helpStep + 1;
+
+    this.helpStep = _.min([stepVal, 3]);
   }
 
 }

@@ -269,16 +269,16 @@ export class TreeViewComponent implements OnInit {
               "isStep": true,
               "precedence": "4",
               "inputs": [
-                {
-                  "name": "db",
-                  "type": "db",
-                  "value": ""
-                },
-                {
-                  "name": "query",
-                  "type": "seq",
-                  "value": ""
-                }
+                // {
+                //   "name": "db",
+                //   "type": "db",
+                //   "value": ""
+                // },
+                // {
+                //   "name": "query",
+                //   "type": "seq",
+                //   "value": ""
+                // }
               ],
               "OutputParams": {
                 "output": ""
@@ -291,16 +291,16 @@ export class TreeViewComponent implements OnInit {
               "isStep": true,
               "precedence": "4",
               "inputs": [
-                {
-                  "name": "db",
-                  "type": "db",
-                  "value": ""
-                },
-                {
-                  "name": "query",
-                  "type": "seq",
-                  "value": ""
-                }
+                // {
+                //   "name": "db",
+                //   "type": "db",
+                //   "value": ""
+                // },
+                // {
+                //   "name": "query",
+                //   "type": "seq",
+                //   "value": ""
+                // }
               ],
               "OutputParams": {
                 "output": ""
@@ -313,16 +313,16 @@ export class TreeViewComponent implements OnInit {
               "isStep": true,
               "precedence": "4",
               "inputs": [
-                {
-                  "name": "db",
-                  "type": "db",
-                  "value": ""
-                },
-                {
-                  "name": "query",
-                  "type": "seq",
-                  "value": ""
-                }
+                // {
+                //   "name": "db",
+                //   "type": "db",
+                //   "value": ""
+                // },
+                // {
+                //   "name": "query",
+                //   "type": "seq",
+                //   "value": ""
+                // }
               ],
               "OutputParams": {
                 "output": ""

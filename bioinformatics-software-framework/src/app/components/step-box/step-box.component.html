@@ -18,7 +18,7 @@
       <fieldset>
         <div class="form-group">
           <label class="col-md-4 control-label">Enter the input {{input.name}}</label>
-          <div class="col-md-4">
+          <div class="col-md-8">
 
             <textarea *ngIf="input.type == 'text'" [(ngModel)]="input['tempValue']" class="form-control" rows="5"
                       style="width: 100%"></textarea>
@@ -27,8 +27,8 @@
               <option *ngFor="let selector of input.selectors" value="{{selector}}" [attr.selected]="input['tempValue'] == selector  ? true : null">{{selector}}</option>
             </select>
 
-          </div>
           <br>
+          </div>
           <div style="float: right">
             <button (click)="onDialogCancel(input, 'dialog_'+step.stepId+'_'+i)" class="btn">Cancel</button>
             <button (click)="onDialogOk(input, 'dialog_'+step.stepId+'_'+i)" class="btn">Ok</button>

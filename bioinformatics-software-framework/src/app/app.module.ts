@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { PairwiseBlastComponent } from './components/visualizers/pairwise-blast/pairwise-blast.component';
 import { ClustalOmegaMsaComponent } from './components/visualizers/clustal-omega-msa/clustal-omega-msa.component';
+import { InstructionsPopoverComponent } from './components/instructions-popover/instructions-popover.component';
 
 const routes = [
   {
@@ -33,7 +34,8 @@ const routes = [
     DrawingBoardComponent,
     StepBoxComponent,
     PairwiseBlastComponent,
-    ClustalOmegaMsaComponent
+    ClustalOmegaMsaComponent,
+    InstructionsPopoverComponent
   ],
   imports: [
     BrowserModule,
