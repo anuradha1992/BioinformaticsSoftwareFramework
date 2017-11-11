@@ -13,6 +13,7 @@ import { HttpModule } from '@angular/http';
 import { PairwiseBlastComponent } from './components/visualizers/pairwise-blast/pairwise-blast.component';
 import { ClustalOmegaMsaComponent } from './components/visualizers/clustal-omega-msa/clustal-omega-msa.component';
 import { InstructionsPopoverComponent } from './components/instructions-popover/instructions-popover.component';
+import { HomePageHelpModalComponent } from './components/home-page-help-modal/home-page-help-modal.component';
 
 const routes = [
   {
@@ -35,7 +36,8 @@ const routes = [
     StepBoxComponent,
     PairwiseBlastComponent,
     ClustalOmegaMsaComponent,
-    InstructionsPopoverComponent
+    InstructionsPopoverComponent,
+    HomePageHelpModalComponent
   ],
   imports: [
     BrowserModule,

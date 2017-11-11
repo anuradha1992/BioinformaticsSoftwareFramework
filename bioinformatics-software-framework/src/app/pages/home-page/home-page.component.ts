@@ -1,28 +1,26 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import * as _ from 'lodash';
 
 import { TreeViewComponent } from '../../components/tree-view/tree-view.component';
 import { DrawingBoardComponent } from '../../components/drawing-board/drawing-board.component';
 import { ExecuteFlowService } from '../../services/work-flow/execute-flow.service';
 import { PairwiseBlastComponent } from '../../components/visualizers/pairwise-blast/pairwise-blast.component';
 import { ClustalOmegaMsaComponent } from '../../components/visualizers/clustal-omega-msa/clustal-omega-msa.component';
-
-declare const $;
+import { HomePageHelpModalComponent } from '../../components/home-page-help-modal/home-page-help-modal.component';
 
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.css'],
-  providers: [TreeViewComponent, DrawingBoardComponent, ExecuteFlowService, PairwiseBlastComponent]
+  providers: [TreeViewComponent, DrawingBoardComponent, ExecuteFlowService, PairwiseBlastComponent, HomePageHelpModalComponent]
 })
 export class HomePageComponent implements OnInit {
   @ViewChild(DrawingBoardComponent) drawingBoard: DrawingBoardComponent;
   @ViewChild(PairwiseBlastComponent) pairwiseBlasterView: PairwiseBlastComponent;
   @ViewChild(ClustalOmegaMsaComponent) clustalOmegaView: ClustalOmegaMsaComponent;
+  @ViewChild(HomePageHelpModalComponent) homePageHelpModal: HomePageHelpModalComponent;
 
   private activeTreeItem: any = null;
   private resultData: any = null;
-  private helpStep: number = 1;
 
   constructor(private executionService: ExecuteFlowService) {
   }
@@ -64,20 +62,6 @@ export class HomePageComponent implements OnInit {
   }
 
   openHelpModal() {
-    this.helpStep = 1;
-    $("[modal='hom-page-help']").modal('show');
+    this.homePageHelpModal.openHelpModal();
   }
-
-  prevHelpModalStep() {
-    const stepVal = this.helpStep - 1;
-
-    this.helpStep = _.max([stepVal, 1]);
-  }
-
-  nextHelpModalStep() {
-    const stepVal = this.helpStep + 1;
-
-    this.helpStep = _.min([stepVal, 3]);
-  }
-
 }
