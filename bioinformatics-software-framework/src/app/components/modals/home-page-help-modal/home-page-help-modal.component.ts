@@ -20,7 +20,7 @@ export class HomePageHelpModalComponent implements OnInit {
 
   openHelpModal() {
     this.helpStep = 1;
-    $("[modal='hom-page-help']").modal('show');
+    $("[modal='home-page-help']").modal('show');
   }
 
   prevHelpModalStep() {

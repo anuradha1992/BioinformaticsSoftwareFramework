@@ -5,19 +5,28 @@ import { DrawingBoardComponent } from '../../components/drawing-board/drawing-bo
 import { ExecuteFlowService } from '../../services/work-flow/execute-flow.service';
 import { PairwiseBlastComponent } from '../../components/visualizers/pairwise-blast/pairwise-blast.component';
 import { ClustalOmegaMsaComponent } from '../../components/visualizers/clustal-omega-msa/clustal-omega-msa.component';
-import { HomePageHelpModalComponent } from '../../components/home-page-help-modal/home-page-help-modal.component';
+import { HomePageHelpModalComponent } from '../../components/modals/home-page-help-modal/home-page-help-modal.component';
+import { TestDataModalComponent } from '../../components/modals/test-data-modal/test-data-modal.component';
 
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.css'],
-  providers: [TreeViewComponent, DrawingBoardComponent, ExecuteFlowService, PairwiseBlastComponent, HomePageHelpModalComponent]
+  providers: [
+    TreeViewComponent,
+    DrawingBoardComponent,
+    ExecuteFlowService,
+    PairwiseBlastComponent,
+    HomePageHelpModalComponent,
+    TestDataModalComponent
+  ]
 })
 export class HomePageComponent implements OnInit {
   @ViewChild(DrawingBoardComponent) drawingBoard: DrawingBoardComponent;
   @ViewChild(PairwiseBlastComponent) pairwiseBlasterView: PairwiseBlastComponent;
   @ViewChild(ClustalOmegaMsaComponent) clustalOmegaView: ClustalOmegaMsaComponent;
   @ViewChild(HomePageHelpModalComponent) homePageHelpModal: HomePageHelpModalComponent;
+  @ViewChild(TestDataModalComponent) testDataModal: TestDataModalComponent;
 
   private activeTreeItem: any = null;
   private resultData: any = null;
@@ -64,4 +73,9 @@ export class HomePageComponent implements OnInit {
   openHelpModal() {
     this.homePageHelpModal.openHelpModal();
   }
+
+  openTestDataModal() {
+    this.testDataModal.openHelpModal();
+  }
+
 }

@@ -13,7 +13,8 @@ import { HttpModule } from '@angular/http';
 import { PairwiseBlastComponent } from './components/visualizers/pairwise-blast/pairwise-blast.component';
 import { ClustalOmegaMsaComponent } from './components/visualizers/clustal-omega-msa/clustal-omega-msa.component';
 import { InstructionsPopoverComponent } from './components/instructions-popover/instructions-popover.component';
-import { HomePageHelpModalComponent } from './components/home-page-help-modal/home-page-help-modal.component';
+import { HomePageHelpModalComponent } from './components/modals/home-page-help-modal/home-page-help-modal.component';
+import { TestDataModalComponent } from './components/modals/test-data-modal/test-data-modal.component';
 
 const routes = [
   {
@@ -37,7 +38,8 @@ const routes = [
     PairwiseBlastComponent,
     ClustalOmegaMsaComponent,
     InstructionsPopoverComponent,
-    HomePageHelpModalComponent
+    HomePageHelpModalComponent,
+    TestDataModalComponent
   ],
   imports: [
     BrowserModule,
