@@ -2,7 +2,8 @@
   "name": "website-using-express",
   "version": "0.0.1",
   "scripts": {
-    "start": "nodemon --exec babel-node --plugins transform-class-properties --presets es2015 server.js"
+    "start": "nodemon --exec babel-node --plugins transform-class-properties --presets es2015 server.js",
+    "test": "babel-node --plugins transform-class-properties --presets es2015 testing.js"
   },
   "dependencies": {
     "blastjs": "^1.5.3",

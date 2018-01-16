@@ -26,7 +26,7 @@ export default class WrapClustalOmega {
         const outputFilename = uuidv4();
 
         return new Promise((resolve, reject) => {
-            const command = `${__dirname}/clustalo-1.2.4-Ubuntu-x86_64 -i ${__dirname}/${inputFilename}.fasta -o ${__dirname}/${outputFilename}.fasta --auto --force -v`;
+            const command = `${__dirname}/clustalo -i ${__dirname}/${inputFilename}.fasta -o ${__dirname}/${outputFilename}.fasta --auto --force -v`;
             // console.log('COMMAND:', command);
             // console.log('execute command');
 
