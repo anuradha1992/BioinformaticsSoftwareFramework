@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { RouterModule }   from '@angular/router';
 
 import { AppComponent } from './app.component';
@@ -15,6 +15,7 @@ import { ClustalOmegaMsaComponent } from './components/visualizers/clustal-omega
 import { InstructionsPopoverComponent } from './components/instructions-popover/instructions-popover.component';
 import { HomePageHelpModalComponent } from './components/modals/home-page-help-modal/home-page-help-modal.component';
 import { TestDataModalComponent } from './components/modals/test-data-modal/test-data-modal.component';
+import { ModalComponent } from './components/modals/modal/modal.component';
 
 const routes = [
   {
@@ -39,7 +40,8 @@ const routes = [
     ClustalOmegaMsaComponent,
     InstructionsPopoverComponent,
     HomePageHelpModalComponent,
-    TestDataModalComponent
+    TestDataModalComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +50,8 @@ const routes = [
     HttpModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas:[NO_ERRORS_SCHEMA]
 })
 export class AppModule {
 }
