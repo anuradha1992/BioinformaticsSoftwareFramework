@@ -25,6 +25,10 @@ const routes = [
     component: EditorViewComponent,
     children: [
       {
+        path: '',
+        component: HomePageComponent,
+      },
+      {
         path: 'editor',
         component: HomePageComponent,
       },
