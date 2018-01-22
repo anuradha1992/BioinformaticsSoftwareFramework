@@ -1,0 +1,147 @@
+<div class="col-sm-12">
+  <div class="alert alert-success" role="alert">
+    <h4 class="alert-heading">Introduction</h4>
+    <hr>
+    <div>
+      <iframe width="854" style="margin: 0 auto; display: block;" height="480"
+              src="https://www.youtube.com/embed/3Xs7S3r_Eo0?ecver=1" frameborder="0" allow="autoplay; encrypted-media"
+              allowfullscreen></iframe>
+    </div>
+    <hr>
+    <h4 class="alert-heading">Tutorial</h4>
+    <hr>
+    <div id="accordion">
+      <div class="card">
+        <div class="card-header">
+          <h5 class="mb-0">
+            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#intro" aria-expanded="true"
+                    aria-controls="collapseOne">
+              Introduction to DNA
+            </button>
+          </h5>
+        </div>
+
+        <div id="intro" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+          <div class="card-body">
+            <iframe width="854" height="480" style="margin: 0 auto; display: block;"
+                    src="https://www.youtube.com/embed/C1CRrtkWwu0?ecver=1" frameborder="0"
+                    allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header" id="headingOne">
+          <h5 class="mb-0">
+            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseOne"
+                    aria-expanded="true" aria-controls="collapseOne">
+              Pairwise sequence alignment
+            </button>
+          </h5>
+        </div>
+
+        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+          <div class="card-body col-sm-10 col-sm-offset-1">
+            <h5>What is Pairwise Sequence Alignment?</h5>
+            <p>Sequence alignment is a method of arranging sequences of DNA, RNA, or protein to identify regions of
+              similarity. The similarity being identified, may be a result of functional, structural, or evolutionary
+              relationships between the sequences.</p>
+            <p>Pairwise sequence alignment is one form of sequence alignment technique, where we compare only two
+              sequences. This process involves finding the optimal alignment between the two sequences, scoring based on
+              their similarity (how similar they are) or distance (how different they are), and then assessing the
+              significance of this score.</p>
+            <img style="margin: 0 auto; display: block;" src="http://compbio.pbworks.com/f/2psa.bmp" alt="">
+            <p>The basis of sequence alignment lies with the scoring process, where the two sequences are given a score
+              on how similar (or different) they are to each other. The pairwise sequence aligning algorithms require a
+              scoring matrix to keep track of the scores assigned. The scoring matrix assigns a positive score for a
+              match, and a penalty for a mismatch.</p>
+            <h5>Three basic aspects are considered when assigning scores. They are,</h5>
+            <ol>
+              <li>Match value — Value assigned for matching characters</li>
+              <li>Mismatch value — Value assigned for mismatching characters</li>
+              <li>Gap penalty — Value assigned for spaces</li>
+            </ol>
+
+            <p>The first character of the two sequences is a match, as both are letter A. Second character of the first
+              sequence is C and that of the second sequence is T. So, it is mismatch.
+              A space is introduced at the end of the second sequence to match with G. This space is known as a gap. A
+              gap is the maximal contiguous run of spaces in a single sequence within a given alignment.</p>
+            <img style="margin: 0 auto; display: block;"
+                 src="https://cdn-images-1.medium.com/max/1200/1*2Wh0jTmRhXLcJQsHhirviw.png" alt="">
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header" id="headingTwo">
+          <h5 class="mb-0">
+            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo"
+                    aria-expanded="false" aria-controls="collapseTwo">
+              Multiple Sequence Alignment
+            </button>
+          </h5>
+        </div>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+          <div class="card-body col-sm-10 col-sm-offset-1">
+            <h5>What is Multiple Sequence Alignment?</h5>
+            <p>In multiple sequence alignment (MSA) we try to align three or more related sequences so as to achieve
+              maximal matching between them. The goal of MSA is to arrange a set of sequences in such a way that as many
+              characters from each sequence are matched according to some scoring function.</p>
+            <img style="margin: 0 auto; display: block;"
+                 src="https://openi.nlm.nih.gov/imgs/512/94/2921379/PMC2921379_1756-0500-3-199-1.png" alt="">
+            <p>The scoring process of MSA is based on the sum of the scores of all possible pairs of sequences in the
+              multiple alignment according to some scoring matrix. You can refer my previous article to learn about the
+              different scoring matrices and how to match them.
+            </p>
+            <br>
+            <div style="text-align: center">
+              <strong>Score of multiple alignment = ∑ score(A, B)</strong>
+            </div>
+            <br>
+            <p>
+              where score(A, B) = pair-wise alignment score of A, B.
+            </p>
+            <pre>
+              Sequence 1:    G   K   N
+              Sequence 2:    T   R   N
+              Sequence 3:    S   H   E</pre>
+            <br>
+            <p>
+              <strong>Sum of pairs: -1 + 1 + 6 = 6</strong>
+              <br>
+              <br>
+              Sum of 2nd Col = score (K, R) + score (R, H) + score (K, H) = 2+0+-1 = 1 <br>
+              The goal of MSA is to achieve the maximum Sum of Pairs.
+            </p>
+            <h5>Three of the popular progressive alignment methods used at present are,</h5>
+            <ol>
+              <li>Clustal Omega</li>
+              <li>T-Coffee</li>
+              <li>DIALIGN</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header" id="headingThree">
+          <h5 class="mb-0">
+            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree"
+                    aria-expanded="false" aria-controls="collapseThree">
+              Collapsible Group Item #3
+            </button>
+          </h5>
+        </div>
+        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+          <div class="card-body">
+            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon
+            officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3
+            wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.
+            Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan
+            excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt
+            you probably haven't heard of them accusamus labore sustainable VHS.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

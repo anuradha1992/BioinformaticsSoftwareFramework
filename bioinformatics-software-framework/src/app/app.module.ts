@@ -16,11 +16,23 @@ import { InstructionsPopoverComponent } from './components/instructions-popover/
 import { HomePageHelpModalComponent } from './components/modals/home-page-help-modal/home-page-help-modal.component';
 import { TestDataModalComponent } from './components/modals/test-data-modal/test-data-modal.component';
 import { ModalComponent } from './components/modals/modal/modal.component';
+import { TutorialPageComponent } from './pages/tutorial-page/tutorial-page.component';
+import { EditorViewComponent } from './pages/editor-view/editor-view.component';
 
 const routes = [
   {
     path: '',
-    component: HomePageComponent
+    component: EditorViewComponent,
+    children: [
+      {
+        path: 'editor',
+        component: HomePageComponent,
+      },
+      {
+        path: 'tutorial',
+        component: TutorialPageComponent
+      }
+    ]
   },
   {
     path: 'login',
@@ -41,7 +53,9 @@ const routes = [
     InstructionsPopoverComponent,
     HomePageHelpModalComponent,
     TestDataModalComponent,
-    ModalComponent
+    ModalComponent,
+    TutorialPageComponent,
+    EditorViewComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +63,9 @@ const routes = [
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [
+    // {provide: RouteReuseStrategy, useClass: CustomReuseStrategy}
+  ],
   bootstrap: [AppComponent],
   schemas:[NO_ERRORS_SCHEMA]
 })
