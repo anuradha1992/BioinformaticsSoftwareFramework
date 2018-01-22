@@ -5,6 +5,7 @@
 import cmd from 'node-cmd';
 import fs from 'fs';
 import uuidv4 from 'uuid/v4';
+import os from 'os';
 
 export default class WrapClustalOmega {
     input;
@@ -26,14 +27,11 @@ export default class WrapClustalOmega {
         const outputFilename = uuidv4();
 
         return new Promise((resolve, reject) => {
-            const command = `${__dirname}/clustalo -i ${__dirname}/${inputFilename}.fasta -o ${__dirname}/${outputFilename}.fasta --auto --force -v`;
-            // console.log('COMMAND:', command);
-            // console.log('execute command');
+            const binary = os.type() === 'Linux' ? 'clustalo-1.2.4-Ubuntu-x86_64' : 'clustalo';
+            const command = `${__dirname}/${binary} -i ${__dirname}/${inputFilename}.fasta -o ${__dirname}/${outputFilename}.fasta --auto --force -v`;
 
             // Execute clustal omega command
             cmd.get( command, (err, data, stderr) => {
-                    // console.log('RESULTS: ', data);
-                    // console.log('finished aligning');
 
                     // Read .fasta result
                     const content = fs.readFileSync(`${__dirname}/${outputFilename}.fasta`, 'utf8');
