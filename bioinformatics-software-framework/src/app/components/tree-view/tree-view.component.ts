@@ -23,8 +23,6 @@ export class TreeViewComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.storage.getComponentTree())
-    this.initTree();
     this.treeService.getTree().then((res) => {
       this.services.core.data = res;
       this.storage.saveComponentTree(res);
