@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
-import { RouterModule }   from '@angular/router';
+import { RouterModule, RouteReuseStrategy }   from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
@@ -18,31 +18,12 @@ import { TestDataModalComponent } from './components/modals/test-data-modal/test
 import { ModalComponent } from './components/modals/modal/modal.component';
 import { TutorialPageComponent } from './pages/tutorial-page/tutorial-page.component';
 import { EditorViewComponent } from './pages/editor-view/editor-view.component';
-
-const routes = [
-  {
-    path: '',
-    component: EditorViewComponent,
-    children: [
-      {
-        path: '',
-        component: HomePageComponent,
-      },
-      {
-        path: 'editor',
-        component: HomePageComponent,
-      },
-      {
-        path: 'tutorial',
-        component: TutorialPageComponent
-      }
-    ]
-  },
-  {
-    path: 'login',
-    component: LoginPageComponent
-  }
-];
+import { AdminPageComponent } from './pages/admin-page/admin-page.component';
+import { CustomReuseStrategy } from './configs/CustomReuseStrategy';
+import {routes} from './routes';
+import { CreateComponentComponent } from './pages/admin-page/create-component/create-component.component';
+import { ManageComponentsComponent } from './pages/admin-page/manage-components/manage-components.component';
+import { BrowserCacheService } from './services/browser-cache/browser-cache-service.service';
 
 @NgModule({
   declarations: [
@@ -59,7 +40,10 @@ const routes = [
     TestDataModalComponent,
     ModalComponent,
     TutorialPageComponent,
-    EditorViewComponent
+    EditorViewComponent,
+    AdminPageComponent,
+    CreateComponentComponent,
+    ManageComponentsComponent
   ],
   imports: [
     BrowserModule,
@@ -68,10 +52,13 @@ const routes = [
     HttpModule
   ],
   providers: [
-    // {provide: RouteReuseStrategy, useClass: CustomReuseStrategy}
+    {provide: RouteReuseStrategy, useClass: CustomReuseStrategy},
+    BrowserCacheService
   ],
   bootstrap: [AppComponent],
-  schemas:[NO_ERRORS_SCHEMA]
+  schemas: [NO_ERRORS_SCHEMA]
 })
 export class AppModule {
 }
+
+

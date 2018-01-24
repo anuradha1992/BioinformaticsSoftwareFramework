@@ -3,10 +3,11 @@
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li><img src="../../../assets/BioFlow.png" width="100" height="auto" vspace="5"/></li>
-        <li class="active"><a routerLink="/editor">Canvas</a></li>
+        <li routerLink="/editor" routerLinkActive="active"><a href="javascript:void(0);">Canvas</a></li>
         <li><a href="javascript:void(0);" (click)="openTestDataModal()">Test Data</a></li>
         <li><a href="javascript:void(0);" (click)="openHelpModal()">Help</a></li>
-        <li><a href="javascript:void(0);" routerLink="/tutorial">Tutorial</a></li>
+        <li routerLink="/tutorial" routerLinkActive="active"><a href="javascript:void(0);">Tutorial</a></li>
+        <li routerLink="/admin" routerLinkActive="active"><a href="javascript:void(0);">Admin</a></li>
       </ul>
     </div>
   </div>
