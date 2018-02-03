@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { ModalComponent } from '../../components/modals/modal/modal.component';
 
 @Component({
   selector: 'app-admin-page',
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin-page.component.css']
 })
 export class AdminPageComponent implements OnInit {
+  @ViewChild('helloModal') modal: ModalComponent;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
+    setTimeout(() => {
+      this.modal.openModal();
+    }, 2000);
   }
 
 }

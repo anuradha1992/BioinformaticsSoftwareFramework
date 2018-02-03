@@ -1,12 +1,14 @@
 <!-- Modal -->
 <div modal="home-page-help" class="modal fade" role="dialog">
-  <div class="modal-dialog" style="z-index: 9999999">
+  <div class="modal-dialog" style="z-index: 9999999" role="document">
 
     <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
         <h4 class="modal-title">Bioflow Help Desk</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
       <div *ngIf="helpStep==1" class="modal-body" ngTemplateOutlet="">
         <h3>Taking user input to the work flow</h3>
@@ -22,7 +24,7 @@
           </li>
           <li>Paste your sequence</li>
           <hr>
-          <img class="img-responsive" src="/assets/drawing-page/user-input.png" alt="">
+          <img class="img-fluid" src="/assets/drawing-page/user-input.png" alt="">
         </ol>
 
       </div>
@@ -33,15 +35,15 @@
         <ol>
           <li>Add two or more components</li>
           <hr>
-          <img class="img-responsive" src="/assets/drawing-page/connect-1.png" alt="">
+          <img class="img-fluid" src="/assets/drawing-page/connect-1.png" alt="">
           <hr>
           <li>Click on one component</li>
           <hr>
-          <img class="img-responsive" src="/assets/drawing-page/connect-2.png" alt="">
+          <img class="img-fluid" src="/assets/drawing-page/connect-2.png" alt="">
           <hr>
           <li>Click on the other component</li>
           <hr>
-          <img class="img-responsive" src="/assets/drawing-page/connect-3.png" alt="">
+          <img class="img-fluid" src="/assets/drawing-page/connect-3.png" alt="">
         </ol>
       </div>
 
@@ -53,19 +55,19 @@
           <li>Add Clustal Omega components (For MSA)</li>
           <li>Connect to Visualize component</li>
           <hr>
-          <img class="img-responsive" src="/assets/drawing-page/vis-1.png" alt="">
+          <img class="img-fluid" src="/assets/drawing-page/vis-1.png" alt="">
           <hr>
           <li>Enter the sequences in the User Input</li>
           <hr>
-          <img class="img-responsive" src="/assets/drawing-page/vis-2.png" alt="">
+          <img class="img-fluid" src="/assets/drawing-page/vis-2.png" alt="">
           <hr>
           <li>Press Execute</li>
           <hr>
-          <img class="img-responsive" src="/assets/drawing-page/vis-3.png" alt="">
+          <img class="img-fluid" src="/assets/drawing-page/vis-3.png" alt="">
           <hr>
           <li>Visualization can be seen at the bottom</li>
           <hr>
-          <img class="img-responsive" src="/assets/drawing-page/vis-4.png" alt="">
+          <img class="img-fluid" src="/assets/drawing-page/vis-4.png" alt="">
         </ol>
       </div>
 

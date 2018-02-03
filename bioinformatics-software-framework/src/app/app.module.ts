@@ -24,6 +24,7 @@ import {routes} from './routes';
 import { CreateComponentComponent } from './pages/admin-page/create-component/create-component.component';
 import { ManageComponentsComponent } from './pages/admin-page/manage-components/manage-components.component';
 import { BrowserCacheService } from './services/browser-cache/browser-cache-service.service';
+import { AboutUsComponent } from './pages/about-us/about-us.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { BrowserCacheService } from './services/browser-cache/browser-cache-serv
     EditorViewComponent,
     AdminPageComponent,
     CreateComponentComponent,
-    ManageComponentsComponent
+    ManageComponentsComponent,
+    AboutUsComponent
   ],
   imports: [
     BrowserModule,

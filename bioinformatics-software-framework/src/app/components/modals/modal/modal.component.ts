@@ -18,7 +18,7 @@ export class ModalComponent implements OnInit {
   ngOnInit() {
   }
 
-  openHelpModal() {
+  openModal() {
     $(`[modal='modal-${this.modalId}']`).modal('show');
   }
 
