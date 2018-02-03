@@ -1,7 +1,8 @@
 <div class="container">
   <div [ngClass]="{'clicked': step.clicked}" [id]="step.stepId" class="item">
-    <div class="h5" style="text-align: center">{{step.text}} <span (click)="onStepRemove($event)"
-                                                                   class="glyphicon glyphicon-remove cross"></span>
+    <div class="h6" style="text-align: center">
+      {{step.text}}
+      <span (click)="onStepRemove($event)"><i class="fas fa-times"></i></span>
     </div>
     <hr>
     <button class="btn btn-block" *ngFor="let input of step.inputs; let i = index"
@@ -16,7 +17,7 @@
           id="dialog_{{step.stepId}}_{{i}}"
           title="Provide {{input.name}}">
       <fieldset>
-        <div class="form-group">
+        <div class="form-group row">
           <label class="col-md-4 control-label">Enter the input {{input.name}}</label>
           <div class="col-md-8">
 
