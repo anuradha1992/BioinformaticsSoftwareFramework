@@ -4,11 +4,13 @@ import express from "express";
 import bodyParser from 'body-parser';
 
 const workflowRouter = require('./routes/work-flow');
+const treeViewRouter = require('./routes/tree-view');
 
 const app = express();
 
 app.use(bodyParser.json());
 app.use('/api', workflowRouter);
+app.use('/api', treeViewRouter);
 
 app.listen(3000, function () {
     console.log("Live at Port 3000");

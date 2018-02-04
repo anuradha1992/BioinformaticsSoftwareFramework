@@ -1,7 +1,9 @@
 <div class="container">
   <div [ngClass]="{'clicked': step.clicked}" [id]="step.stepId" class="item">
-    <div class="h5" style="text-align: center">{{step.text}} <span (click)="onStepRemove($event)"
-                                                                   class="glyphicon glyphicon-remove cross"></span></div>
+    <div class="h6" style="text-align: center">
+      {{step.text}}
+      <span (click)="onStepRemove($event)"><i class="fas fa-times"></i></span>
+    </div>
     <hr>
     <button class="btn btn-block" *ngFor="let input of step.inputs; let i = index"
             (click)="onInputPress($event, 'dialog_'+step.stepId+'_'+i)">{{input.name}}
@@ -9,15 +11,31 @@
     <hr>
     <div (click)="onBoxClick($event)" style="text-align: center"><span class="glyphicon glyphicon-arrow-down"></span>
     </div>
-    <div *ngFor="let input of step.inputs; let i = index" style="display: none" id="dialog_{{step.stepId}}_{{i}}"
-         title="Provide {{input.name}}">
-      <p>Enter the input {{input.name}}</p>
-      <textarea [(ngModel)]="input['tempValue']" class="form-control" rows="5" style="width: 100%"></textarea>
-      <br>
-      <div style="float: right">
-        <button (click)="onDialogCancel(input, 'dialog_'+step.stepId+'_'+i)" class="btn">Cancel</button>
-        <button (click)="onDialogOk(input, 'dialog_'+step.stepId+'_'+i)" class="btn">Ok</button>
-      </div>
+
+
+    <div class="form-horizontal" *ngFor="let input of step.inputs; let i = index" style="display: none"
+          id="dialog_{{step.stepId}}_{{i}}"
+          title="Provide {{input.name}}">
+      <fieldset>
+        <div class="form-group row">
+          <label class="col-md-4 control-label">Enter the input {{input.name}}</label>
+          <div class="col-md-8">
+
+            <textarea *ngIf="input.type == 'text'" [(ngModel)]="input['tempValue']" class="form-control" rows="5"
+                      style="width: 100%"></textarea>
+
+            <select *ngIf="input.type == 'select'" class="form-control" [(ngModel)]="input['tempValue']">
+              <option *ngFor="let selector of input.selectors" value="{{selector}}" [attr.selected]="input['tempValue'] == selector  ? true : null">{{selector}}</option>
+            </select>
+
+          <br>
+          </div>
+          <div style="float: right">
+            <button (click)="onDialogCancel(input, 'dialog_'+step.stepId+'_'+i)" class="btn">Cancel</button>
+            <button (click)="onDialogOk(input, 'dialog_'+step.stepId+'_'+i)" class="btn">Ok</button>
+          </div>
+        </div>
+      </fieldset>
     </div>
   </div>
 </div>

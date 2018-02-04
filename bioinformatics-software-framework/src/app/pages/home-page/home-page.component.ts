@@ -10,7 +10,12 @@ import { ClustalOmegaMsaComponent } from '../../components/visualizers/clustal-o
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.css'],
-  providers: [TreeViewComponent, DrawingBoardComponent, ExecuteFlowService, PairwiseBlastComponent]
+  providers: [
+    TreeViewComponent,
+    DrawingBoardComponent,
+    ExecuteFlowService,
+    PairwiseBlastComponent
+  ]
 })
 export class HomePageComponent implements OnInit {
   @ViewChild(DrawingBoardComponent) drawingBoard: DrawingBoardComponent;
