@@ -32,24 +32,30 @@ export default class WrapTCoffee {
         return new Promise((resolve, reject) => {
 
             // Format t-coffee command to execute
-            const command = `t_coffee -output clustalw  -infile ${__dirname}/${inputFilename}.fasta -outfile ${__dirname}/${outputFilename}.aln`;
+            const command = `t_coffee  -infile ${__dirname}/${inputFilename}.fasta -outfile ${__dirname}/${outputFilename}.aln`;
 
             // Execute t-coffee command
             cmd.get( command, (err, data, stderr) => {
 
-                // Read .fasta result
-                const content = fs.readFileSync(`${__dirname}/${outputFilename}.aln`, 'utf8');
+                if (err) {
+                    reject("T-Coffee Error\n" + err);
+                } else {
+                    // Read .fasta result
+                    const content = fs.readFileSync(`${__dirname}/${outputFilename}.aln.html`, 'utf8');
+                    const rawContent = fs.readFileSync(`${__dirname}/${outputFilename}.aln`, 'utf8');
 
-                resolve(content);
+                    resolve({step: 't-coffee', output: {content: content, rawContent: rawContent}});
+                }
 
                 // Remove input file
-                fs.unlinkSync(`${__dirname}/${inputFilename}.fasta`);
+                fs.existsSync(`${__dirname}/${inputFilename}.fasta`) && fs.unlinkSync(`${__dirname}/${inputFilename}.fasta`);
 
                 // Remove output file
-                fs.unlinkSync(`${__dirname}/${outputFilename}.aln`);
+                fs.existsSync(`${__dirname}/${outputFilename}.aln.html`) && fs.unlinkSync(`${__dirname}/${outputFilename}.aln.html`);
+                fs.existsSync(`${__dirname}/${outputFilename}.aln`) && fs.unlinkSync(`${__dirname}/${outputFilename}.aln`);
 
                 // Remove .dnd file formed for input file
-                fs.unlinkSync(`${__dirname}/../../${inputFilename}.dnd`);
+                fs.existsSync(`${__dirname}/../../${inputFilename}.dnd`) && fs.unlinkSync(`${__dirname}/../../${inputFilename}.dnd`);
             });
 
         });

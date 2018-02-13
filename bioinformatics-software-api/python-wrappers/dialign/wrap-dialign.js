@@ -40,20 +40,23 @@ export default class WrapDialign {
 
             // Execute DIALIGN command
             cmd.get(command, (err, data, stderr) => {
+                if (err || stderr) {
+                    reject("DIALIGN Error\n" + err);
+                } else {
+                    // Read .fasta result
+                    const content = fs.readFileSync(`${__dirname}/${outputFilename}`, 'utf8');
 
-                // Read .fasta result
-                const content = fs.readFileSync(`${__dirname}/${outputFilename}`, 'utf8');
-
-                resolve(content);
+                    resolve({step: 'dialign', output: content});
+                }
 
                 // Remove input file
-                fs.unlinkSync(`${__dirname}/${inputFilename}.fasta`);
+                fs.existsSync(`${__dirname}/${inputFilename}.fasta`) && fs.unlinkSync(`${__dirname}/${inputFilename}.fasta`);
 
                 // Remove output file
-                fs.unlinkSync(`${__dirname}/${outputFilename}`);
+                fs.existsSync(`${__dirname}/${outputFilename}`) && fs.unlinkSync(`${__dirname}/${outputFilename}`);
 
                 // Remove .fa file formed to format input file
-                fs.unlinkSync(`${__dirname}/${outputFilename}.fa`);
+                fs.existsSync(`${__dirname}/${outputFilename}.fa`) && fs.unlinkSync(`${__dirname}/${outputFilename}.fa`);
             });
 
         });

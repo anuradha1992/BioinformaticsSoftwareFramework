@@ -1,12 +1,10 @@
-import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { StepBoxComponent } from '../step-box/step-box.component';
 import * as _ from 'lodash';
-import { current } from 'codelyzer/util/syntaxKind';
 import uuidv4 from 'uuid/v4';
 
 declare const $: any;
 declare const jsPlumb: any;
-// declare const uuidv4: any;
 
 @Component({
   selector: 'app-drawing-board',
@@ -65,7 +63,7 @@ export class DrawingBoardComponent implements OnInit {
               const connection = jsPlumb.connect({
                 source: link.from.stepId,
                 target: link.to.stepId,
-                paintStyle: {strokeStyle: "black", lineWidth: 3},
+                paintStyle: {strokeStyle: "grey", lineWidth: 3},
                 endpointStyle: {fillStyle: "red", outlineColor: "black", radius: 5},
                 overlays:[
                   ["Arrow" , { width:12, length:12, location:0.67 }]
@@ -160,7 +158,7 @@ export class DrawingBoardComponent implements OnInit {
     }
     const startLink = _.minBy(this.links, (link) => link.from.precedence);
     const links = [];
-    const steps = []
+    const steps = [];
 
     let currentLink = startLink;
 

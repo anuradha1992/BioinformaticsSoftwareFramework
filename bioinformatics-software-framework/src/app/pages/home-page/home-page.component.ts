@@ -5,6 +5,8 @@ import { DrawingBoardComponent } from '../../components/drawing-board/drawing-bo
 import { ExecuteFlowService } from '../../services/work-flow/execute-flow.service';
 import { PairwiseBlastComponent } from '../../components/visualizers/pairwise-blast/pairwise-blast.component';
 import { ClustalOmegaMsaComponent } from '../../components/visualizers/clustal-omega-msa/clustal-omega-msa.component';
+import { DialignMsaComponent } from '../../components/visualizers/dialign-msa/dialign-msa.component';
+import { TCoffeeMsaComponent } from '../../components/visualizers/t-coffee-msa/t-coffee-msa.component';
 
 @Component({
   selector: 'app-home-page',
@@ -21,6 +23,9 @@ export class HomePageComponent implements OnInit {
   @ViewChild(DrawingBoardComponent) drawingBoard: DrawingBoardComponent;
   @ViewChild(PairwiseBlastComponent) pairwiseBlasterView: PairwiseBlastComponent;
   @ViewChild(ClustalOmegaMsaComponent) clustalOmegaView: ClustalOmegaMsaComponent;
+  @ViewChild(DialignMsaComponent) dialignView: DialignMsaComponent;
+  @ViewChild(TCoffeeMsaComponent) tCoffeeView: TCoffeeMsaComponent;
+
 
   private activeTreeItem: any = null;
   private resultData: any = null;
@@ -55,6 +60,12 @@ export class HomePageComponent implements OnInit {
         case 'clustal-omega':
           this.clustalOmegaView.render(result.data);
           break;
+        case 'dialign':
+          this.dialignView.render(result.data);
+          break;
+        case 't-coffee':
+          this.tCoffeeView.render(result.data);
+          break;
       }
     });
   }
@@ -62,6 +73,8 @@ export class HomePageComponent implements OnInit {
   clearUI() {
     this.pairwiseBlasterView.clear();
     this.clustalOmegaView.clear();
+    this.dialignView.clear();
+    this.tCoffeeView.clear();
   }
 
 }

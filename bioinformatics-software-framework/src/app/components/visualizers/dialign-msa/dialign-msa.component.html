@@ -2,10 +2,10 @@
   <button (click)="viewRaw()">View Raw Result</button>
 </div>
 <div>
-  <div id="clustal-omega-msa"></div>
+  <pre>{{data}}</pre>
 </div>
-<app-modal #clustalOmegaViewRaw [width]="'80%'">
-  <modal-header>Clustal Omega Result</modal-header>
+<app-modal #dialignViewRaw [width]="'80%'">
+  <modal-header>DIALIGN Result</modal-header>
   <modal-body>
     <pre>{{data}}</pre>
   </modal-body>

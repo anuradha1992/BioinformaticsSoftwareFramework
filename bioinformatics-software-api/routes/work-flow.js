@@ -19,6 +19,7 @@ router.post('/flow', (req, res) => {
     const steps = [];
 
     _.each(req.body.steps, (step, index) => {
+        console.log(step.text);
         switch (step.text) {
             case 'User Input':
                 steps.push(new Step(new Task.Data(step.inputs[0].value), null, index === 0));
@@ -38,6 +39,12 @@ router.post('/flow', (req, res) => {
             case 'Visualize Output':
                 steps.push(new Step(new Task.Visualize(), null, index === 0));
                 break;
+            case 'DIALIGN':
+                steps.push(new Step(new Task.Dialign(), null, index === 0));
+                break;
+            case 'T-Coffee':
+                steps.push(new Step(new Task.TCoffee(), null, index === 0));
+                break;
         }
     });
 
@@ -49,7 +56,8 @@ router.post('/flow', (req, res) => {
         console.log('SENDING RESULT OVER HTTP');
         res.send(result);
     }).catch((e) => {
-        console.log('ERROR OCCURRED', e)
+        console.log('ERROR OCCURRED', e);
+        res.status(500);
     });
 });
 

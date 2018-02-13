@@ -3,6 +3,8 @@
  */
 import Blast from './blast';
 import ClustalOmega from './clustal-omega';
+import Dialign from './dialign';
+import TCoffee from './t-coffee';
 import Visualize from './visualize';
 import Data from './data';
 
@@ -10,5 +12,7 @@ export {
     Data,
     Blast,
     ClustalOmega,
-    Visualize
+    Visualize,
+    Dialign,
+    TCoffee
 }

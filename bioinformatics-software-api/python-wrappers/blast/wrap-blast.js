@@ -21,8 +21,7 @@ export default class WrapBlast {
 
         return new Promise((resolve, reject) => {
             shell.end((err) => {
-                if (err) reject();
-
+                if (err) reject("BLAST error\n" + err);
             });
 
             shell.on('message', (message) => {

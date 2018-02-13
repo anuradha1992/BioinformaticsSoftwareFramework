@@ -31,20 +31,23 @@ export default class WrapClustalOmega {
             const command = `${__dirname}/${binary} -i ${__dirname}/${inputFilename}.fasta -o ${__dirname}/${outputFilename}.fasta --auto --force -v`;
 
             // Execute clustal omega command
-            cmd.get( command, (err, data, stderr) => {
+            cmd.get(command, (err, data, stderr) => {
 
-                    // Read .fasta result
-                    const content = fs.readFileSync(`${__dirname}/${outputFilename}.fasta`, 'utf8');
-                    // console.log('CONTENT: ', content);
+                    if (err || stderr) {
+                        reject("Clustal Error\n" + err);
+                    } else {
+                        // Read .fasta result
+                        const content = fs.readFileSync(`${__dirname}/${outputFilename}.fasta`, 'utf8');
+                        // console.log('CONTENT: ', content);
 
-                    resolve({step: 'clustal-omega', output: content});
+                        resolve({step: 'clustal-omega', output: content});
+                    }
 
                     // Remove input file
-                    fs.unlinkSync(`${__dirname}/${inputFilename}.fasta`);
-                    // console.log('input file removed');
+                    fs.existsSync(`${__dirname}/${inputFilename}.fasta`) && fs.unlinkSync(`${__dirname}/${inputFilename}.fasta`);
 
                     // Remove output file
-                    fs.unlinkSync(`${__dirname}/${outputFilename}.fasta`);
+                    fs.existsSync(`${__dirname}/${outputFilename}.fasta`) && fs.unlinkSync(`${__dirname}/${outputFilename}.fasta`);
                     // console.log('output file removed');
                 }
             );

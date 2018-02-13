@@ -25,6 +25,9 @@ import { CreateComponentComponent } from './pages/admin-page/create-component/cr
 import { ManageComponentsComponent } from './pages/admin-page/manage-components/manage-components.component';
 import { BrowserCacheService } from './services/browser-cache/browser-cache-service.service';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
+import { DialignMsaComponent } from './components/visualizers/dialign-msa/dialign-msa.component';
+import { TCoffeeMsaComponent } from './components/visualizers/t-coffee-msa/t-coffee-msa.component';
+import { EscapeHtmlPipe } from './configs/EscapeHtmlPipe';
 
 @NgModule({
   declarations: [
@@ -45,7 +48,10 @@ import { AboutUsComponent } from './pages/about-us/about-us.component';
     AdminPageComponent,
     CreateComponentComponent,
     ManageComponentsComponent,
-    AboutUsComponent
+    AboutUsComponent,
+    DialignMsaComponent,
+    TCoffeeMsaComponent,
+    EscapeHtmlPipe
   ],
   imports: [
     BrowserModule,
