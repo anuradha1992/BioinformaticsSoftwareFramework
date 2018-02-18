@@ -112,22 +112,36 @@
             <h5>Needleman-Wunsch Algorithm</h5>
             <p>This pairwise sequence alignment algorithm finds the <b>best alignment over the entire lengths of 2
               given sequences</b> using dynamic programming. Since it uses the entire length of the sequence,
-              it is known to produce a <b>global alignment</b>. This algorithm was published by Needleman and Wunsch
-              in 1970 for alignment of two protein sequences and it was the first application of dynamic programming
-              to biological sequence analysis.</p>
+              it is known to produce a <b>global sequence alignment</b>. This algorithm was published by Needleman and
+              Wunsch in 1970 for alignment of two protein sequences and it was the first application of dynamic
+              programming to biological sequence analysis.</p>
             <p>You can try out the interactive demonstration for Needleman-Wunsch algorithm given below. It visualizes
               the dynamic programming matrix being used as well.</p>
             <iframe width="90%" height="600" style="margin: 0 auto; display: block;"
                     src="http://experiments.mostafa.io/public/needleman-wunsch/" frameborder="0"
                     allowfullscreen></iframe>
 
+            <br>
             <h5>Smith-Waterman Algorithm</h5>
-            <p>This pairwise sequence alignment algorithm finds the <b>most similar subsequences among the 2 given
-              sequences</b> using dynamic programming. Since it uses a subsequence of the entire sequence,
-              it is known to produce a <b>local alignment</b>, local to the considered subsequence. Smith and Waterman
-              published an application of dynamic programming to find the optimal local alignments in 1981.
-              This algorithm is similar to Needleman-Wunsch algorithm, but there are slight differences with the
-              scoring process.</p>
+            <p>This pairwise sequence alignment algorithm finds the <b>best alignment among subsequences of the
+              2 given sequences</b> using dynamic programming. Since it uses a subsequence of the entire sequence,
+              it is known to produce a <b>local sequence alignment</b>, local to the considered subsequence.
+              Smith and Waterman published an application of dynamic programming to find the optimal local alignments
+              in 1981. This algorithm is similar to Needleman-Wunsch algorithm, but there are slight differences
+              with the scoring process.</p>
+
+            <h5>FASTA and BLAST</h5>
+            <p>Constructing the dynamic programming matrix to find similar sequences with millions of base pairs is
+              not feasible as it is costly. Hence heuristic algorithms were developed to search only a small fraction
+              of the sequences. The notion is to analyze the sequences, ignore the strings/substrings that are
+              unlikely to match the query and then do dynamic programming on strings/substrings which are potentially
+              good matches. Two such well-know heuristic algorithms are, </p>
+            <ol>
+              <li><b>FASTA</b> (FAST Alignment)</li>
+              <li><b>BLAST</b> (Basic Local Alignment Search Tool)</li>
+            </ol>
+
+
 
           </div>
         </div>
@@ -183,6 +197,27 @@
           </div>
         </div>
       </div>
+
+      <div class="card">
+        <div class="card-header" id="headingThree">
+          <h5 class="mb-0">
+            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree"
+                    aria-expanded="false" aria-controls="collapseThree">
+              Microarray Technology
+            </button>
+          </h5>
+        </div>
+        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+          <div class="card-body col-sm-12 col-sm-offset-1" style="margin-left: 13px;">
+            <h5>What is DNA Microarray Technology?</h5>
+            <iframe width="80%" height="480" style="margin: 0 auto; display: block;"
+                    src="https://www.youtube.com/embed/6ZzFihESjp0?ecver=1" frameborder="0"
+                    allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            <br>
+          </div>
+        </div>
+      </div>
+
       <!--<div class="card">-->
         <!--<div class="card-header" id="headingThree">-->
           <!--<h5 class="mb-0">-->
