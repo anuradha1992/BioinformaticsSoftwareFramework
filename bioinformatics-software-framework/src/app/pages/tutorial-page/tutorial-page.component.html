@@ -16,16 +16,54 @@
           <h5 class="mb-0">
             <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#intro" aria-expanded="true"
                     aria-controls="collapseOne">
-              Introduction to DNA
+              Basic Molecular Genetics
             </button>
           </h5>
         </div>
 
         <div id="intro" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-          <div class="card-body">
+          <div class="card-body col-sm-12 col-sm-offset-1" style="margin-left: 13px;">
+            <h5>DNA Structure</h5>
             <iframe width="80%" height="480" style="margin: 0 auto; display: block;"
                     src="https://www.youtube.com/embed/C1CRrtkWwu0?ecver=1" frameborder="0"
                     allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            <br>
+            <p>DNA stands for <b><u>d</u>eoxyribo<u>n</u>ucleac <u>a</u>cid</b> and it contains the information
+              that determines inherited characteristics. DNA is made up of repeating subunits called <b>nucleotides</b>. Nucleotides are made up of the
+              following three basic units.</p>
+              <ol>
+                <li>A phosphate group</li>
+                <li>A sugar named <b>deoxyribose</b></li>
+                <li>A nitrogen base</li>
+              </ol>
+
+            <p>There are four nitrogen bases in DNA. They are</p>
+              <ol>
+                <li><b>Adenine (A)</b></li>
+                <li><b>Thymine (T)</b></li>
+                <li><b>Cytosine (C)</b></li>
+                <li><b>Guanine (G)</b></li>
+              </ol>
+
+            <p>Length of a DNA molecule is described in number of AT and CG <b>base-pairs (bp)</b>. For example,
+              the sequence given at the end of the above video is 8 bp long.</p>
+            <p>In a given DNA, <b>No. of A = T</b> and <b>No. of C = G</b>, because of the <b>complementarity</b> of the
+              two strands.</p>
+
+            <h5>Genetic Information</h5>
+            <p>Genetic information is packed in to <b>chromosomes</b> inside the nucleus of the cells of higher
+              organisms (Eukaryotes).</p>
+            <p>A chromosome consists of a single, very long <b>DNA helix</b> on which thousands of <b>genes</b>
+              are encoded. Every human cell has 46 molecules of double-stranded DNA. These DNA molecules are coiled
+              to form 23 pairs of chromosomes.</p>
+            <p></p>
+            <p><img style="margin: 0 auto; display: block;"
+                 src="http://3.bp.blogspot.com/-CfTgV4grh38/UyfjgiMNG_I/AAAAAAAAC58/2KYesHLAvP8/s1600/ADN+gene.png" alt="">
+            </p>
+            <p><b>Genes</b> are the working subunits of DNA that contain a particular set of instructions, usually
+              coding for a particular <b>proteins</b> or for a particular function.
+              In humans, genes vary in size from 100 to more than 2 million base pairs.</p>
+
           </div>
         </div>
       </div>
@@ -35,18 +73,18 @@
           <h5 class="mb-0">
             <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseOne"
                     aria-expanded="true" aria-controls="collapseOne">
-              Pairwise sequence alignment
+              Pairwise Sequence Alignment
             </button>
           </h5>
         </div>
 
         <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-          <div class="card-body col-sm-12 col-sm-offset-1">
+          <div class="card-body col-sm-12 col-sm-offset-1" style="margin-left: 13px;">
             <h5>What is Pairwise Sequence Alignment?</h5>
-            <p>Sequence alignment is a method of arranging sequences of DNA, RNA, or protein to identify regions of
+            <p><b>Sequence alignment</b> is a method of arranging biological sequences to identify regions of
               similarity. The similarity being identified, may be a result of functional, structural, or evolutionary
               relationships between the sequences.</p>
-            <p>Pairwise sequence alignment is one form of sequence alignment technique, where we compare only two
+            <p><b>Pairwise sequence alignment</b> is one form of sequence alignment technique, where we compare only two
               sequences. This process involves finding the optimal alignment between the two sequences, scoring based on
               their similarity (how similar they are) or distance (how different they are), and then assessing the
               significance of this score.</p>
@@ -55,19 +93,42 @@
               on how similar (or different) they are to each other. The pairwise sequence aligning algorithms require a
               scoring matrix to keep track of the scores assigned. The scoring matrix assigns a positive score for a
               match, and a penalty for a mismatch.</p>
-            <h5>Three basic aspects are considered when assigning scores. They are,</h5>
+            <h6>Three basic aspects are considered when assigning scores. They are,</h6>
             <ol>
-              <li>Match value — Value assigned for matching characters</li>
-              <li>Mismatch value — Value assigned for mismatching characters</li>
-              <li>Gap penalty — Value assigned for spaces</li>
+              <li><b>Match value</b> — Value assigned for matching characters</li>
+              <li><b>Mismatch value</b> — Value assigned for mismatching characters</li>
+              <li><b>Gap penalty</b> — Value assigned for spaces</li>
             </ol>
 
-            <p>The first character of the two sequences is a match, as both are letter A. Second character of the first
-              sequence is C and that of the second sequence is T. So, it is mismatch.
-              A space is introduced at the end of the second sequence to match with G. This space is known as a gap. A
-              gap is the maximal contiguous run of spaces in a single sequence within a given alignment.</p>
+            <p>Let us consider a simple example to understand sequence alignment. We are provided with two
+              sequences <b>ACTCG</b> and <b>ATTC</b>. We can align them as shown below.</p>
             <img style="margin: 0 auto; display: block;"
                  src="https://cdn-images-1.medium.com/max/1200/1*2Wh0jTmRhXLcJQsHhirviw.png" alt="">
+            <p>The first character of the two sequences is a <b>match</b>, as both are letter A. The second character of
+              the first sequence is C and that of the second sequence is T. So, it is a <b>mismatch</b>.
+              A space is introduced at the end of the second sequence to match with G. This space is known as a
+              <b>gap</b>.</p>
+
+            <h5>Needleman-Wunsch Algorithm</h5>
+            <p>This pairwise sequence alignment algorithm finds the <b>best alignment over the entire lengths of 2
+              given sequences</b> using dynamic programming. Since it uses the entire length of the sequence,
+              it is known to produce a <b>global alignment</b>. This algorithm was published by Needleman and Wunsch
+              in 1970 for alignment of two protein sequences and it was the first application of dynamic programming
+              to biological sequence analysis.</p>
+            <p>You can try out the interactive demonstration for Needleman-Wunsch algorithm given below. It visualizes
+              the dynamic programming matrix being used as well.</p>
+            <iframe width="90%" height="600" style="margin: 0 auto; display: block;"
+                    src="http://experiments.mostafa.io/public/needleman-wunsch/" frameborder="0"
+                    allowfullscreen></iframe>
+
+            <h5>Smith-Waterman Algorithm</h5>
+            <p>This pairwise sequence alignment algorithm finds the <b>most similar subsequences among the 2 given
+              sequences</b> using dynamic programming. Since it uses a subsequence of the entire sequence,
+              it is known to produce a <b>local alignment</b>, local to the considered subsequence. Smith and Waterman
+              published an application of dynamic programming to find the optimal local alignments in 1981.
+              This algorithm is similar to Needleman-Wunsch algorithm, but there are slight differences with the
+              scoring process.</p>
+
           </div>
         </div>
       </div>
@@ -82,7 +143,7 @@
           </h5>
         </div>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-          <div class="card-body col-sm-12 col-sm-offset-1">
+          <div class="card-body col-sm-12 col-sm-offset-1" style="margin-left: 13px;">
             <h5>What is Multiple Sequence Alignment?</h5>
             <p>In multiple sequence alignment (MSA) we try to align three or more related sequences so as to achieve
               maximal matching between them. The goal of MSA is to arrange a set of sequences in such a way that as many
