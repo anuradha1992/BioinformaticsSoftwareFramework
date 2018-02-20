@@ -18,7 +18,7 @@ export const routes = [
       children: [
         {
           path: '',
-          redirectTo: 'editor',
+          redirectTo: 'tutorial',
           pathMatch: 'full'
         },
         {
