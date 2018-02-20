@@ -109,36 +109,11 @@
               A space is introduced at the end of the second sequence to match with G. This space is known as a
               <b>gap</b>.</p>
 
-            <h5>Needleman-Wunsch Algorithm</h5>
-            <p>This pairwise sequence alignment algorithm finds the <b>best alignment over the entire lengths of 2
-              given sequences</b> using dynamic programming. Since it uses the entire length of the sequence,
-              it is known to produce a <b>global sequence alignment</b>. This algorithm was published by Needleman and
-              Wunsch in 1970 for alignment of two protein sequences and it was the first application of dynamic
-              programming to biological sequence analysis.</p>
-            <p>You can try out the interactive demonstration for Needleman-Wunsch algorithm given below. It visualizes
-              the dynamic programming matrix being used as well.</p>
-            <iframe width="90%" height="600" style="margin: 0 auto; display: block;"
-                    src="http://experiments.mostafa.io/public/needleman-wunsch/" frameborder="0"
-                    allowfullscreen></iframe>
-
-            <br>
-            <h5>Smith-Waterman Algorithm</h5>
-            <p>This pairwise sequence alignment algorithm finds the <b>best alignment among subsequences of the
-              2 given sequences</b> using dynamic programming. Since it uses a subsequence of the entire sequence,
-              it is known to produce a <b>local sequence alignment</b>, local to the considered subsequence.
-              Smith and Waterman published an application of dynamic programming to find the optimal local alignments
-              in 1981. This algorithm is similar to Needleman-Wunsch algorithm, but there are slight differences
-              with the scoring process.</p>
-
-            <h5>FASTA and BLAST</h5>
-            <p>Constructing the dynamic programming matrix to find similar sequences with millions of base pairs is
-              not feasible as it is costly. Hence heuristic algorithms were developed to search only a small fraction
-              of the sequences. The notion is to analyze the sequences, ignore the strings/substrings that are
-              unlikely to match the query and then do dynamic programming on strings/substrings which are potentially
-              good matches. Two such well-know heuristic algorithms are, </p>
+            <p>Some well-know tools which utilize pairwise-sequence alignment algorithms to find matching sequences
+              are, </p>
             <ol>
-              <li><b>FASTA</b> (FAST Alignment)</li>
-              <li><b>BLAST</b> (Basic Local Alignment Search Tool)</li>
+              <li>FASTA (FAST Alignment)</li>
+              <li>BLAST (Basic Local Alignment Search Tool)</li>
             </ol>
 
 
@@ -165,30 +140,38 @@
             <img style="margin: 0 auto; display: block;"
                  src="https://openi.nlm.nih.gov/imgs/512/94/2921379/PMC2921379_1756-0500-3-199-1.png" alt="">
             <p>The scoring process of MSA is based on the sum of the scores of all possible pairs of sequences in the
-              multiple alignment according to some scoring matrix. You can refer my previous article to learn about the
-              different scoring matrices and how to match them.
+              multiple alignment according to a scoring scheme.
             </p>
             <br>
             <div style="text-align: center">
               <strong>Score of multiple alignment = ∑ score(A, B)</strong>
+              <br>
+              where score(A, B) = pair-wise alignment score of A, B
             </div>
             <br>
-            <p>
-              where score(A, B) = pair-wise alignment score of A, B.
-            </p>
+            <h5>Example</h5>
+            <p>Consider the following scoring scheme.</p>
+            <ul>
+              <li>A match gives you +1</li>
+              <li>A	mismatch gives you 0</li>
+              <li>A gap costs −1</li>
+            </ul>
+            <p>Let us see how we can calculate the alignment score for the 3 sequences <b>ATGGCAG</b>,
+              <b>ATGGC</b> and <b>GGCT</b>. We can align the sequences as follows</p>
             <pre>
-              Sequence 1:    G   K   N
-              Sequence 2:    T   R   N
-              Sequence 3:    S   H   E</pre>
-            <br>
+              Sequence 1:    A   T   G   G   C   A   G
+              Sequence 2:    A   T   G   G   C   _   _
+              Sequence 3:    _   _   G   G   C   T   _</pre>
+            <p>score(Seq 1, Seq 2) = 1 + 1 + 1 + 1 + 1 + (-1) + (-1) = 3
+            <br>score(Seq 1, Seq 3) = (-1) + (-1) + 1 + 1 + 1 + 0 + (-1) = 0
+            <br>score(Seq 2, Seq 3) = (-1) + (-1) + 1 + 1 + 1 + 0 + (-1) = 0</p>
             <p>
-              <strong>Sum of pairs: -1 + 1 + 6 = 6</strong>
-              <br>
-              <br>
-              Sum of 2nd Col = score (K, R) + score (R, H) + score (K, H) = 2+0+-1 = 1 <br>
+              Score of multiple alignment = ∑ score(A, B) = score(Seq 1, Seq 2) + score(Seq 1, Seq 3)
+              + score(Seq 2, Seq 3) = 3 + 0 + 0 = <b>3</b></p>
+            <p>
               The goal of MSA is to achieve the maximum Sum of Pairs.
             </p>
-            <h5>Three of the popular progressive alignment methods used at present are,</h5>
+            <h5>Three of the popular MSA tools used at present are,</h5>
             <ol>
               <li>Clustal Omega</li>
               <li>T-Coffee</li>
@@ -196,27 +179,41 @@
             </ol>
           </div>
         </div>
-      </div>
-
-      <div class="card">
-        <div class="card-header" id="headingThree">
-          <h5 class="mb-0">
-            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree"
-                    aria-expanded="false" aria-controls="collapseThree">
-              Microarray Technology
-            </button>
-          </h5>
-        </div>
-        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-          <div class="card-body col-sm-12 col-sm-offset-1" style="margin-left: 13px;">
-            <h5>What is DNA Microarray Technology?</h5>
-            <iframe width="80%" height="480" style="margin: 0 auto; display: block;"
-                    src="https://www.youtube.com/embed/6ZzFihESjp0?ecver=1" frameborder="0"
-                    allow="autoplay; encrypted-media" allowfullscreen></iframe>
-            <br>
+        <div class="card">
+          <div class="card-header" id="headingThree">
+            <h5 class="mb-0">
+              <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree"
+                      aria-expanded="false" aria-controls="collapseThree">
+                Bioinformatics Workflows
+              </button>
+            </h5>
+          </div>
+          <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+            <div class="card-body col-sm-12 col-sm-offset-1" style="margin-left: 13px;">
+              <h5>What is a Workflow?</h5>
+              <p>A <b>workflow</b> consists of a set of activities which enables the systematic organization of
+                resources that transform materials, provide services, or process information. It can be depicted as a
+                sequence of operations to complete a process. It is similar to a pipeline where the output of
+                one element is used as the input of the next one.</p>
+              <h5>What are Bioinformatics Workflows?</h5>
+              <p><b>Bioinformatics workflows</b> are used to organize a sequence of activities related to biological
+                data. They consist of a series of computational or data manipulation steps that are related to
+                bioinformatics analyses. </p>
+              <p>Workflows are visualized in the form of workflow diagrams, depicting inputs, outputs, services and
+                data flows. </p>
+              <p>Given below is a simple workflow where a user can input a sequence, perform BLAST search,
+                return the matching sequences and visualize them. User input, BLAST and visualization are represented
+                as tasks and the edges connecting these tasks represent the data flow.</p>
+              <img class="img-fluid" src="../../../assets/tutorial-page/SampleWorkflow.png"
+                   style="width: 700px; height: auto" alt="">
+              <br><br>
+              <p>Similarly, complex workflows can be created and the results can be visualized.</p>
+              <br>
+            </div>
           </div>
         </div>
       </div>
+
 
       <!--<div class="card">-->
         <!--<div class="card-header" id="headingThree">-->
