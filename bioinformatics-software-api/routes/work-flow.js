@@ -24,7 +24,7 @@ router.post('/flow', (req, res) => {
             case 'User Input':
                 steps.push(new Step(new Task.Data(step.inputs[0].value), null, index === 0));
                 break;
-            case 'Blast':
+            case 'BLAST':
                 const blastInputs = {};
 
                 _.each(step.inputs, (input) => {
