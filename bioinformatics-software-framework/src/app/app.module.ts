@@ -28,6 +28,7 @@ import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { DialignMsaComponent } from './components/visualizers/dialign-msa/dialign-msa.component';
 import { TCoffeeMsaComponent } from './components/visualizers/t-coffee-msa/t-coffee-msa.component';
 import { EscapeHtmlPipe } from './configs/EscapeHtmlPipe';
+import { FormsPageComponent } from './pages/forms-page/forms-page.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { EscapeHtmlPipe } from './configs/EscapeHtmlPipe';
     AboutUsComponent,
     DialignMsaComponent,
     TCoffeeMsaComponent,
-    EscapeHtmlPipe
+    EscapeHtmlPipe,
+    FormsPageComponent
   ],
   imports: [
     BrowserModule,

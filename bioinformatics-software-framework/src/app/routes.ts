@@ -9,6 +9,7 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { CreateComponentComponent } from './pages/admin-page/create-component/create-component.component';
 import { ManageComponentsComponent } from './pages/admin-page/manage-components/manage-components.component';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
+import { FormsPageComponent } from './pages/forms-page/forms-page.component';
 
 export const routes = [
     {
@@ -27,6 +28,10 @@ export const routes = [
         {
           path: 'tutorial',
           component: TutorialPageComponent
+        },
+        {
+          path: 'form',
+          component: FormsPageComponent
         },
         {path: "about-us", component: AboutUsComponent},
         {
