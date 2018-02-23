@@ -12,16 +12,16 @@ export class EditorViewComponent implements OnInit {
   @ViewChild(HomePageHelpModalComponent) homePageHelpModal: HomePageHelpModalComponent;
   @ViewChild(TestDataModalComponent) testDataModal: TestDataModalComponent;
 
-  localStorage = localStorage;
+  // localStorage = localStorage;
 
   constructor() { }
 
   ngOnInit() {
-    if (this.getParameterByName("type") === 'tutorial' && _.isEmpty(localStorage.getItem("type"))) {
-      localStorage.setItem("type", "tutorial");
-    } else if (_.isEmpty(localStorage.getItem("type"))) {
-      localStorage.setItem("type", "tool");
-    }
+    // if (this.getParameterByName("type") === 'tutorial' && _.isEmpty(localStorage.getItem("type"))) {
+    //   localStorage.setItem("type", "tutorial");
+    // } else if (_.isEmpty(localStorage.getItem("type"))) {
+    //   localStorage.setItem("type", "tool");
+    // }
   }
 
   openHelpModal() {
