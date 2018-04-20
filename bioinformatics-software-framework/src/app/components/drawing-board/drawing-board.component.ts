@@ -65,8 +65,8 @@ export class DrawingBoardComponent implements OnInit {
                 target: link.to.stepId,
                 paintStyle: {strokeStyle: "grey", lineWidth: 3},
                 endpointStyle: {fillStyle: "red", outlineColor: "black", radius: 5},
-                overlays:[
-                  ["Arrow" , { width:12, length:12, location:0.67 }]
+                overlays: [
+                  ["Arrow", {width: 12, length: 12, location: 0.67}]
                 ]
               }, this.connectorProps);
               link['connection'] = connection;
@@ -80,14 +80,6 @@ export class DrawingBoardComponent implements OnInit {
 
   addStep(step) {
     const localStep = _.cloneDeep(step);
-
-    // check if first step already exist
-    // if (_.findIndex(this.steps, (arrStep) => {
-    //     return (localStep.precedence === arrStep.precedence)
-    //   }) !== -1) {
-    //   alert(`Another step with precedence ${localStep.precedence} exists, Please remove it`);
-    //   return;
-    // }
 
     localStep['stepId'] = uuidv4();
     this.steps.push(localStep);
@@ -153,32 +145,42 @@ export class DrawingBoardComponent implements OnInit {
   }
 
   getStepSequence() {
-    if (_.isEmpty(this.links)) {
-      return;
-    }
-    const startLink = _.minBy(this.links, (link) => link.from.precedence);
-    const links = [];
-    const steps = [];
+    const steps = _.map(this.steps, (stepObj: any) => {
+        return {
+          stepId: stepObj.stepId,
+          name: stepObj.text,
+          params: _.map(stepObj.inputs, (paramObj: any) => {
+            return {
+              name: paramObj.name,
+              value: paramObj.value
+            }
+          }),
+          nextStepIds: [],
+          parentStepIds: [],
+          computedValue: null,
+          parentResults: []
+        }
+    });
 
-    let currentLink = startLink;
-
-    links.push(currentLink);
-
-    // while there is another link joined, keep adding the links
-    while (_.findIndex(this.links, (link) => currentLink.to.stepId === link.from.stepId) !== -1) {
-      currentLink = _.find(this.links, (link) => {
-        return link.from.stepId === currentLink.to.stepId;
+    _.each(this.links, (link) => {
+      // get the parent step and child step
+      const parentStep =_.find(steps, (step) => {
+        return step.stepId === link.from.stepId
       });
-      links.push(currentLink)
-    }
+      const childStep =_.find(steps, (step) => {
+        return step.stepId === link.to.stepId
+      });
 
-    console.log(links)
-
-    steps.push(links[0].from);
-    _.each(links, (link) => {
-      steps.push(link.to);
+      parentStep.nextStepIds.push(childStep.stepId);
+      childStep.parentStepIds.push(parentStep.stepId);
     });
 
     return steps;
+  }
+
+  updateStepSequence(steps) {
+    _.each(steps, (step) => {
+
+    });
   }
 }

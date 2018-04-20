@@ -8,11 +8,11 @@ export default class Blast {
     database = 'nr';
 
     constructor(program) {
-        this.program = program;
+        // this.program = program;
     }
 
     execute(...taskParams) {
-        const wrap = new WrapBlast(this.program, this.database, taskParams[0]);
+        const wrap = new WrapBlast(this.program, this.database, taskParams[0].output);
 
         return wrap.exec();
     }

@@ -9,7 +9,7 @@ export default class Visualize {
             const resultObject = {
                 type: taskParams[0].step,
                 command: 'visualize',
-                data: taskParams[0].output
+                data: taskParams[0]
             };
 
             resolve(resultObject);

@@ -8,6 +8,8 @@ import { ClustalOmegaMsaComponent } from '../../components/visualizers/clustal-o
 import { DialignMsaComponent } from '../../components/visualizers/dialign-msa/dialign-msa.component';
 import { TCoffeeMsaComponent } from '../../components/visualizers/t-coffee-msa/t-coffee-msa.component';
 
+import * as _ from 'lodash';
+
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
@@ -50,23 +52,31 @@ export class HomePageComponent implements OnInit {
 
     const steps = this.drawingBoard.getStepSequence();
 
-    this.executionService.executeFlow(steps).then((result) => {
-      this.resultData = result;
-      console.log(result);
-      switch (result.type) {
-        case 'blast':
-          this.pairwiseBlasterView.render(result.data);
-          break;
-        case 'clustal-omega':
-          this.clustalOmegaView.render(result.data);
-          break;
-        case 'dialign':
-          this.dialignView.render(result.data);
-          break;
-        case 't-coffee':
-          this.tCoffeeView.render(result.data);
-          break;
-      }
+    this.executionService.executeFlow(steps).then((results) => {
+      this.resultData = results;
+      console.log('results came ', results);
+      _.each(results, (result: any) => {
+        console.log(result.name)
+        if (result.name === 'Visualize Output') {
+          console.log(result.computedValue)
+          _.each(result.computedValue.data, (visualizeData:any) => {
+            switch (visualizeData.step) {
+              case 'blast':
+                this.pairwiseBlasterView.render(visualizeData.text);
+                break;
+              case 'clustal-omega':
+                this.clustalOmegaView.render(visualizeData.output);
+                break;
+              case 'dialign':
+                this.dialignView.render(visualizeData.output);
+                break;
+              case 't-coffee':
+                this.tCoffeeView.render(visualizeData.output);
+                break;
+            }
+          });
+        }
+      });
     });
   }
 

@@ -21,7 +21,7 @@ export default class WrapClustalOmega {
         const inputFilename = uuidv4();
 
         // Create input file with input data
-        fs.writeFileSync(`${__dirname}/${inputFilename}.fasta`, this.input);
+        fs.writeFileSync(`${__dirname}/${inputFilename}.fasta`, this.input.output);
 
         // Get output file name
         const outputFilename = uuidv4();

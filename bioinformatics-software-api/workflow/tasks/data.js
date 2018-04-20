@@ -10,6 +10,6 @@ export default class Data {
     }
 
     execute() {
-        return new Promise(resolve => resolve(this.data));
+        return new Promise(resolve => resolve({step: 'blast', output: this.data}));
     }
 }
