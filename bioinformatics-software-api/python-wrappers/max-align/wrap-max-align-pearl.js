@@ -5,9 +5,8 @@
 import cmd from 'node-cmd';
 import fs from 'fs';
 import uuidv4 from 'uuid/v4';
-import os from 'os';
 
-export default class WrapClustalOmega {
+export default class WrapMaxAlignPearl {
     input;
 
     // TODO these are the parameters
@@ -27,27 +26,28 @@ export default class WrapClustalOmega {
         const outputFilename = uuidv4();
 
         return new Promise((resolve, reject) => {
-            const binary = os.type() === 'Linux' ? 'clustalo-1.2.4-Ubuntu-x86_64' : 'clustalo';
-            const command = `${__dirname}/${binary} -i ${__dirname}/${inputFilename}.fasta -o ${__dirname}/${outputFilename}.fasta --auto --force -v`;
+            const command = `perl ${__dirname}/maxalign.pl ${__dirname}/${inputFilename}.fasta`;
 
             // Execute clustal omega command
             cmd.get(command, (err, data, stderr) => {
 
                     if (err || stderr) {
-                        reject("Clustal Error\n" + err);
+                        reject("Max Align Error\n" + err);
                     } else {
                         // Read .fasta result
-                        const content = fs.readFileSync(`${__dirname}/${outputFilename}.fasta`, 'utf8');
+                        const content = fs.readFileSync(`./heuristic.fsa`, 'utf8');
                         // console.log('CONTENT: ', content);
 
-                        resolve({step: 'clustal-omega', output: content});
+                        resolve({step: 'clustal-omega-max-align', output: content});
                     }
 
                     // Remove input file
                     fs.existsSync(`${__dirname}/${inputFilename}.fasta`) && fs.unlinkSync(`${__dirname}/${inputFilename}.fasta`);
 
                     // Remove output file
-                    fs.existsSync(`${__dirname}/${outputFilename}.fasta`) && fs.unlinkSync(`${__dirname}/${outputFilename}.fasta`);
+                    fs.existsSync(`./heuristic.fsa`) && fs.unlinkSync(`./heuristic.fsa`);
+                    fs.existsSync(`./heuristic_exclude_headers.txt`) && fs.unlinkSync(`./heuristic_exclude_headers.txt`);
+                    fs.existsSync(`./heuristic_include_headers.txt`) && fs.unlinkSync(`./heuristic_include_headers.txt`);
                     // console.log('output file removed');
                 }
             );

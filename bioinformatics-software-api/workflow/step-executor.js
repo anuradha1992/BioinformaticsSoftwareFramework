@@ -20,11 +20,23 @@ export default function run(step) {
         case 'Visualize Output':
             return (new Task.Visualize()).execute(step.parentResults);
             break;
+        case 'Max Align':
+            return (new Task.MaxAling()).execute(step.parentResults[0]);
+            break;
         case 'DIALIGN':
             return (new Task.Dialign()).execute(step.parentResults[0]);
             break;
         case 'T-Coffee':
             return (new Task.TCoffee()).execute(step.parentResults[0]);
+            break;
+        case 'NetPhos':
+            return (new Task.NetPhos()).execute(step.parentResults[0]);
+            break;
+        case 'ProP':
+            return (new Task.ProP()).execute(step.parentResults[0]);
+            break;
+        case 'SignalP':
+            return (new Task.SignalP()).execute(step.parentResults[0]);
             break;
     }
 }

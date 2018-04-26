@@ -67,6 +67,9 @@ export class HomePageComponent implements OnInit {
               case 'clustal-omega':
                 this.clustalOmegaView.render(visualizeData.output);
                 break;
+              case 'clustal-omega-max-align':
+                this.clustalOmegaView.render(visualizeData.output);
+                break;
               case 'dialign':
                 this.dialignView.render(visualizeData.output);
                 break;

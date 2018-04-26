@@ -41,7 +41,7 @@ outFile = open(outFileName, 'w+')
 for alignment in blast_record.alignments:
     for hsp in alignment.hsps:
         outFile.write('>' + alignment.title + '\n')
-        outFile.write(hsp.sbjct + '\n')
+        outFile.write(hsp.sbjct.replace("-", "") + '\n')
 outFile.close()
 
 outFile = open(outFileName)

@@ -6,7 +6,7 @@ import WrapClustalOmega from '../../python-wrappers/clustal-omega/wrap-clustal-o
 export default class ClustelOmega {
 
     execute(...taskParams) {
-        const wrap = new WrapClustalOmega(taskParams[0]);
+        const wrap = new WrapClustalOmega(taskParams[0].output);
 
         return wrap.exec();
     }
