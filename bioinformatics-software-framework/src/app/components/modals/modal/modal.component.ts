@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import uuidv4 from 'uuid/v4';
 
 declare const $;
@@ -9,6 +9,7 @@ declare const $;
   styleUrls: ['./modal.component.css']
 })
 export class ModalComponent implements OnInit {
+  @Input() width: string = '50%';
   modalId: string;
 
   constructor() {

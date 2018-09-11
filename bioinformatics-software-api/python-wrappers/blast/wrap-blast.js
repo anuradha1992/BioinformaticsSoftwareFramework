@@ -21,23 +21,23 @@ export default class WrapBlast {
 
         return new Promise((resolve, reject) => {
             shell.end((err) => {
-                if (err) reject();
-
+                if (err) reject("BLAST error\n" + err);
             });
 
             shell.on('message', (message) => {
-                const lines = message.split('\n');
-                const count = lines.length;
+                // const lines = message.split('\n');
+                // const count = lines.length;
+                //
+                // for (let i = 0; i < count; i++) {
+                //     let line = lines.shift();
+                //
+                //     if(line.match(/<PRE>/)) {
+                //         break;
+                //     }
+                // }
 
-                for (let i = 0; i < count; i++) {
-                    let line = lines.shift();
-
-                    if(line.match(/<PRE>/)) {
-                        break;
-                    }
-                }
-
-                resolve({step: 'blast', output: lines.join('\n')});
+                // resolve({step: 'blast', output: lines.join('\n')});
+                resolve({step: 'blast', output: message.output, text: message.text});
             });
         });
 

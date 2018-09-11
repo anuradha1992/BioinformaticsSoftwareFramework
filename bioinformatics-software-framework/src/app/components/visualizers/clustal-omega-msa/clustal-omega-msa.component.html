@@ -1,3 +1,13 @@
+<div *ngIf="active">
+  <button class="btn btn-secondary" (click)="viewRaw()">View Raw Result</button>
+</div>
 <div>
   <div id="clustal-omega-msa"></div>
 </div>
+<app-modal #clustalOmegaViewRaw [width]="'80%'">
+  <modal-header>Clustal Omega Result</modal-header>
+  <modal-body>
+    <pre>{{data}}</pre>
+  </modal-body>
+  <modal-footer></modal-footer>
+</app-modal>

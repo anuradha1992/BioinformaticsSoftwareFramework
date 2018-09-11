@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { ModalComponent } from '../../modals/modal/modal.component';
 
 declare const msa: any;
 
@@ -8,8 +9,12 @@ declare const msa: any;
   styleUrls: ['./clustal-omega-msa.component.css']
 })
 export class ClustalOmegaMsaComponent implements OnInit {
+  @ViewChild('clustalOmegaViewRaw') modal: ModalComponent;
+  data: string = null;
+  active: boolean = false;
 
   constructor() {
+
   }
 
   ngOnInit() {
@@ -23,10 +28,17 @@ export class ClustalOmegaMsaComponent implements OnInit {
       seqs: seqs
     });
 
+    this.data = data;
     m.render();
+    this.active = true;
   }
 
   clear() {
+    this.active = false;
     document.getElementById('clustal-omega-msa').innerHTML = '';
+  }
+
+  viewRaw() {
+    this.modal.openModal();
   }
 }

@@ -4,6 +4,8 @@
 import express from "express";
 import * as _ from 'lodash';
 
+import exec from '../workflow/step-executor';
+
 import Step from '../workflow/step';
 import * as Task from '../workflow/tasks';
 
@@ -13,44 +15,60 @@ router.use((req, res, next) => {
     next()
 });
 
-router.post('/flow', (req, res) => {
+router.post('/flow', async (req, res) => {
     res.header('content-type', 'application/json');
 
-    const steps = [];
+    const incompleteList = req.body.steps;
+    const completedList = [];
 
-    _.each(req.body.steps, (step, index) => {
-        switch (step.text) {
-            case 'User Input':
-                steps.push(new Step(new Task.Data(step.inputs[0].value), null, index === 0));
-                break;
-            case 'Blast':
-                const blastInputs = {};
-
-                _.each(step.inputs, (input) => {
-                    blastInputs[input.name] = input.value
-                });
-
-                steps.push(new Step(new Task.Blast(`blast${_.lowerCase(blastInputs['N/P'])}`), null, index === 0));
-                break;
-            case 'Clustal Omega':
-                steps.push(new Step(new Task.ClustalOmega(), null, index === 0));
-                break;
-            case 'Visualize Output':
-                steps.push(new Step(new Task.Visualize(), null, index === 0));
-                break;
-        }
-    });
-
-    for (let i = 0; i < steps.length - 1; i++) {
-        steps[i].setNext(steps[i + 1]);
+    function hasRunnable() {
+        const result = _.find(incompleteList, (step) => {
+            return step.parentStepIds.length === 0 || step.parentStepIds.length === step.parentResults.length;
+        });
+        return !_.isEmpty(result);
     }
 
-    steps[0].start().then(result => {
-        console.log('SENDING RESULT OVER HTTP');
-        res.send(result);
-    }).catch((e) => {
-        console.log('ERROR OCCURRED', e)
-    });
+    function getRunnables() {
+        return _.remove(incompleteList, (step) => {
+            return step.parentStepIds.length === 0 || step.parentStepIds.length === step.parentResults.length;
+        });
+    }
+
+    async function executeStep(step) {
+        // execute and obtain result
+        const result = await exec(step);
+
+        step.computedValue = result;
+
+        // propagate results for children
+        const nextStepIds = step.nextStepIds;
+        _.each(nextStepIds, (id) => {
+            const stepObj = _.find(incompleteList, (obj) => id === obj.stepId);
+            stepObj.parentResults.push(step.computedValue);
+        });
+    }
+
+    while (hasRunnable()) {
+        const runnableList = getRunnables();
+        let step = null;
+
+        for (let i = 0; i < runnableList.length; i++) {
+            step = runnableList[i];
+            // console.log('running step', step.name);
+            await executeStep(step);
+
+            console.log(step.name);
+            completedList.push(step);
+        }
+    }
+    res.send(_.map(completedList, (step) => {
+        return {
+            name: step.name,
+            stepId: step.stepId,
+            computedValue: step.computedValue
+        }
+    }));
+    // console.log('completed ', completedList)
 });
 
 

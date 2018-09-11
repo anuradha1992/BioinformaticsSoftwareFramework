@@ -5,11 +5,13 @@
       <span (click)="onStepRemove($event)"><i class="fas fa-times"></i></span>
     </div>
     <hr>
-    <button class="btn btn-block" *ngFor="let input of step.inputs; let i = index"
+    <button class="btn btn-block btn-secondary" *ngFor="let input of step.inputs; let i = index"
             (click)="onInputPress($event, 'dialog_'+step.stepId+'_'+i)">{{input.name}}
     </button>
     <hr>
-    <div (click)="onBoxClick($event)" style="text-align: center"><span class="glyphicon glyphicon-arrow-down"></span>
+    <div (click)="onBoxClick($event)" style="text-align: center">
+      <i class="fas fa-link"></i>
+
     </div>
 
 
@@ -31,8 +33,8 @@
           <br>
           </div>
           <div style="float: right">
-            <button (click)="onDialogCancel(input, 'dialog_'+step.stepId+'_'+i)" class="btn">Cancel</button>
-            <button (click)="onDialogOk(input, 'dialog_'+step.stepId+'_'+i)" class="btn">Ok</button>
+            <button (click)="onDialogCancel(input, 'dialog_'+step.stepId+'_'+i)" class="btn btn-secondary">Cancel</button>
+            <button (click)="onDialogOk(input, 'dialog_'+step.stepId+'_'+i)" class="btn btn-secondary">Ok</button>
           </div>
         </div>
       </fieldset>
